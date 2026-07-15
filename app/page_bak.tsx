@@ -1,0 +1,443 @@
+'use client';
+
+import { useState } from 'react';
+
+const navItems = [
+  { key: 'home', label: 'HOME' },
+  { key: 'research', label: 'RESEARCH' },
+  { key: 'people', label: 'TEAM' },
+  { key: 'publications', label: 'PUBLICATIONS' },
+  { key: 'news', label: 'NEWS' },
+  { key: 'join', label: 'CONTACT US' },
+];
+
+const people = [
+  {
+    name: 'Yaxi Wang',
+    role: 'Principal Investigator',
+    image: '/images/yaxi-profile.jpg',
+    bio: 'Yaxi, pronounced “Yashi” (yes, it sounds a bit like that green dinosaur in Super Mario), grew up in an ancient city in northern China. He received his Ph.D. in Biochemistry from Texas A&M, where he had fun studying lipid transfer proteins and lipid kinases in Dr. Vytas Bankaitis’s lab. For his postdoctoral training with Dr. Joseph Mougous, first at the University of Washington and later at Yale, Yaxi worked on a variety of topics spanning nutrient utilization in intracellular bacterial pathogens, bacterial protein-protein interactions, and interbacterial interactions. After experiencing life in the South, Pacific Northwest, and the East Coast, Yaxi is excited to move to Ohio, where the climate and latitude are very similar to those of his hometown. Outside of the lab, Yaxi enjoys watching professional basketball (Go Spurs!), exploring everything related to biology, and spending time with his family.',
+  },
+  {
+    name: 'Future Lab Member',
+    role: 'Postdoctoral Fellow',
+    image: '',
+    bio: 'Add a short bio for each lab member, including research interests and training background.',
+  },
+  {
+    name: 'Future Lab Member',
+    role: 'Graduate Student',
+    image: '',
+    bio: 'Add a short bio for each lab member, including projects, interests, and contact links if desired.',
+  },
+  {
+    name: 'Future Lab Member',
+    role: 'Research Assistant',
+    image: '',
+    bio: 'Add a short bio for each lab member here.',
+  },
+];
+
+const publications = [
+  {
+    title: 'Genetic manipulation of Patescibacteria provides mechanistic insights into microbial dark matter and the epibiotic lifestyle',
+    meta: 'Cell · 2023',
+    summary: 'A short one-sentence description of the main finding or why the paper matters.',
+  },
+  {
+    title: 'Another key paper from the lab or prior work',
+    meta: 'Journal Name · 2025',
+    summary: 'A short one-sentence description of the main finding or why the paper matters.',
+  },
+  {
+    title: 'A foundational publication relevant to the lab vision',
+    meta: 'Journal Name · 2024',
+    summary: 'A short one-sentence description of the main finding or why the paper matters.',
+  },
+  {
+    title: 'Additional publication placeholder',
+    meta: 'Journal Name · 2023',
+    summary: 'Use this area for selected papers, preprints, or a link to the full publication list.',
+  },
+];
+
+function Layout({
+  page,
+  setPage,
+  children,
+}: {
+  page: string;
+  setPage: (page: string) => void;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="min-h-screen bg-white text-slate-900">
+      <header className="border-w border-slate-200 bg-white">
+        <div className="flex items-center justify-between px-4 py-5 lg:px-6">
+          <button onClick={() => setPage('home')} className="flex items-center gap-2 text-left">
+            <img
+              src="/images/lab-logo.jpg"
+              alt="Wang Lab logo"
+              className="h-25 w-auto object-contain"
+            />
+            <div className="text-2xl font-bold tracking-tight text-slate-900">
+              WANG LAB
+            </div>
+          </button>
+
+          <nav className="ml-4 flex flex-wrap items-center justify-end gap-x-10 gap-y-3 text-lg text-slate-900">
+            {navItems.map((item) => {
+              const active = page === item.key;
+              return (
+                <button
+                  key={item.key}
+                  onClick={() => setPage(item.key)}
+                  className={
+                    active
+                      ? 'font-semibold text-slate-950 underline underline-offset-4'
+                      : 'hover:text-slate-950'
+                  }
+                >
+                  {item.label}
+                </button>
+              );
+            })}
+          </nav>
+        </div>
+      </header>
+
+      <main>{children}</main>
+
+      <footer className="mt-16 border-t border-slate-200 bg-white">
+        <div className="mx-auto grid max-w-6xl gap-8 px-6 py-10 md:grid-cols-2 lg:px-8">
+          <div>
+            <div className="text-lg font-semibold text-slate-900">Wang Lab @ OSU</div>
+            <p className="mt-3 max-w-md leading-7 text-slate-600">
+              Department of Microbiology
+              <br />
+              The Ohio State University
+              <br />
+              Columbus, Ohio
+            </p>
+          </div>
+
+          <div className="md:text-right">
+            <div className="text-sm uppercase tracking-[0.2em] text-slate-900">Contact</div>
+            <p className="mt-3 leading-7 text-slate-900">
+              yaxi621@gmail.com
+              <br />
+              476 Biological Sciences Building, 484 W. 12th Ave
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+function SectionIntro({
+  eyebrow,
+  title,
+  text,
+}: {
+  eyebrow?: string;
+  title?: string;
+  text?: string;
+}) {
+  return (
+    <div className="max-w-4xl">
+      {eyebrow ? (
+        <div className="text-sm uppercase tracking-[0.2em] text-slate-500">{eyebrow}</div>
+      ) : null}
+      {title ? (
+        <h1 className="mt-3 text-4xl font-semibold tracking-tight text-slate-900 md:text-5xl">
+          {title}
+        </h1>
+      ) : null}
+      {text ? (
+        <p className={title ? 'mt-5 text-lg leading-10 text-slate-700' : 'text-lg leading-8 text-slate-700'}>
+          {text}
+        </p>
+      ) : null}
+    </div>
+  );
+}
+
+function HomePage({ setPage }: { setPage: (page: string) => void }) {
+  return (
+    <>
+<section className="relative w-full overflow-hidden">
+  <img
+    src="/images/osu-building-hero.png"
+    alt="Biological Sciences Building at The Ohio State University"
+    className="h-[88vh] w-full object-cover"
+  />
+
+  <div className="absolute inset-0 bg-black/10" />
+
+  <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-white via-white/60 to-transparent" />
+  <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white via-white/70 to-transparent" />
+
+  <div className="absolute inset-0 flex items-end">
+    <div className="px-6 pb-12 lg:px-10 lg:pb-16">
+      <div className="max-w-3xl text-white">
+        <p className="text-sm uppercase tracking-[0.2em] text-white/90">
+          The Ohio State University
+        </p>
+        <h1 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">
+          Wang Lab
+        </h1>
+        <p className="mt-4 text-lg leading-8 text-white/90 md:text-xl">
+          Department of Microbiology
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+function ResearchPage() {
+  return (
+    <section className="mx-auto max-w-6xl px-6 py-14 lg:px-8 lg:py-16">
+      <h1 className="text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">
+        What is Patescibacteria?
+      </h1>
+
+      <div className="mt-8 max-w-5xl space-y-3 text-lg leading-8 text-slate-900">
+        <p>
+          Patescibacteria, also known as Candidate Phyla Radiation (CPR). These bacteria disproportionately contribute to the
+          ‘microbial dark matter’—the large group of microorganisms on our planet that are
+          difficult to cultivate and whose biology remains largely unknown.
+        </p>
+
+        <p>
+          Patescibacteria comprise a substantial proportion of bacterial diversity, with some
+          estimates placing them as high as 25%, and they are widespread in both environmental
+          settings and human microbiomes. They share several unusual features that distinguish them
+          from most other bacteria: ultrasmall cell size (~0.2 µm in width), streamlined genomes
+          (&lt;1 Mbp), limited metabolic capability, and an obligate epibiotic lifestyle in which
+          they rely on host bacteria for propagation while living on the host cell surface.
+        </p>
+      </div>
+
+      <div className="mt-10 max-w-3xl">
+        <img
+          src="/images/research-pic.png"
+          className="w-full h-auto"
+        />
+        <p className="mt-3 text-sm text-slate-500">
+        </p>
+      </div>
+
+      <div className="mt-5 max-w-5xl space-y-6 text-lg leading-8 text-slate-700">
+        <p>
+          We use a combination of genetic, biochemical, structural, and bioinformatic approaches to
+          study these enigmatic bacteria and their interactions with hosts. Some of our current
+          focuses include:
+        </p>
+        <ol className="list-decimal space-y-3 pl-6">
+          <li>What is the range of host microorganisms that Patescibacteria can infect?</li>
+          <li>
+            What are the molecular mechanisms governing Patescibacteria-host attachment and host
+            specificity?
+          </li>
+          <li>
+            How do host bacteria respond to Patescibacteria infection and defend against
+            Patescibacteria?
+          </li>
+          <li>
+            How do Patescibacteria and their interactions with host bacteria influence the human
+            oral microbiome and human health?
+          </li>
+        </ol>
+        <p>
+          Beyond Patescibacteria, we are broadly interested in studying interactions between
+          microbes, including bacteria, phages, and archaea, especially those that reside in human
+          microbiomes. Through these investigations, we aim to contribute to our understanding of
+          how intermicrobial interactions shape the microbiome and ultimately impact human health.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function PeoplePage() {
+  return (
+    <section className="mx-auto max-w-6xl px-6 py-14 lg:px-8 lg:py-16">
+      <div className="mt-12 space-y-12">
+        {people.map((person) => (
+          <div
+            key={person.name + person.role}
+            className="grid gap-6 border-b border-slate-200 pb-10 md:grid-cols-[180px_1fr]"
+          >
+            <div>
+              {person.image ? (
+                <img
+                  src={person.image}
+                  alt={person.name}
+                  className="aspect-[4/5] w-full object-cover border border-slate-200"
+                />
+              ) : (
+                <div className="flex aspect-[4/5] items-center justify-center border border-slate-200 bg-slate-100 text-slate-500">
+                  Photo
+                </div>
+              )}
+            </div>
+            <div>
+              <h2 className="text-2xl font-semibold tracking-tight text-slate-900">
+                {person.name}
+              </h2>
+              <div className="mt-1 text-slate-600">{person.role}</div>
+              <p className="mt-4 leading-8 text-slate-700">{person.bio}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function PublicationsPage() {
+  return (
+    <section className="mx-auto max-w-6xl px-6 py-14 lg:px-8 lg:py-16">
+      <SectionIntro
+        eyebrow="Publications"
+        title="Selected work and scientific direction."
+        text="Feature representative papers at the top, then link out to a full publication list, Google Scholar profile, or downloadable CV."
+      />
+
+      <div className="mt-12 space-y-8">
+        {publications.map((pub) => (
+          <div key={pub.title} className="border-b border-slate-200 pb-8">
+            <div className="text-2xl font-semibold tracking-tight text-slate-900">
+              {pub.title}
+            </div>
+            <div className="mt-2 text-sm uppercase tracking-[0.18em] text-slate-500">
+              {pub.meta}
+            </div>
+            <p className="mt-4 max-w-4xl leading-8 text-slate-700">{pub.summary}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function NewsPage() {
+  return (
+    <section className="mx-auto max-w-6xl px-6 py-14 lg:px-8 lg:py-16">
+      <div className="space-y-16">
+        <div>
+          <h1 className="text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">
+            LAB NEWS
+          </h1>
+
+          <div className="mt-10 space-y-8">
+            <div className="border-b border-slate-200 pb-8">
+              <div className="text-2xl font-semibold tracking-tight text-slate-900">
+                Lab starts on January 2027
+              </div>
+              <div className="mt-2 text-sm uppercase tracking-[0.18em] text-slate-500">
+                July 4, 2026
+              </div>
+              <p className="mt-4 max-w-4xl leading-8 text-slate-700">
+                So the adventure begins!
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">
+            ACTIVITIES
+          </h2>
+
+          <div className="mt-10 space-y-8">
+            <div className="border-b border-slate-200 pb-8">
+              <div className="text-2xl font-semibold tracking-tight text-slate-900">
+                Activity Title
+              </div>
+              <div className="mt-2 text-sm uppercase tracking-[0.18em] text-slate-500">
+                Month Year
+              </div>
+              <p className="mt-4 max-w-4xl leading-8 text-slate-700">
+                Add a short description of talks, outreach, conferences, or lab activities here.
+              </p>
+            </div>
+
+            <div className="border-b border-slate-200 pb-8">
+              <div className="text-2xl font-semibold tracking-tight text-slate-900">
+                Another Activity
+              </div>
+              <div className="mt-2 text-sm uppercase tracking-[0.18em] text-slate-500">
+                Month Year
+              </div>
+              <p className="mt-4 max-w-4xl leading-8 text-slate-700">
+                Add another activity update here.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function JoinPage() {
+  return (
+    <section className="mx-auto max-w-6xl px-6 py-14 lg:px-8 lg:py-16">
+      <SectionIntro
+        eyebrow="Contact Us"
+        title="We welcome inquiries from prospective trainees and collaborators."
+        text="Use this page to describe open positions, how to apply, and what materials applicants should send."
+      />
+
+      <div className="mt-12 grid gap-10 md:grid-cols-2">
+        <div>
+          <h2 className="text-2xl font-semibold tracking-tight text-slate-900">
+            Who should reach out?
+          </h2>
+          <ul className="mt-5 space-y-4 leading-8 text-slate-700">
+            <li>
+              Graduate students interested in microbial interactions and host-associated microbiology
+            </li>
+            <li>
+              Postdocs with strengths in genetics, mechanistic microbiology, imaging, or bacterial
+              cell biology
+            </li>
+            <li>
+              Collaborators in microbiology, glycobiology, host-microbe interactions, and community
+              biology
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 className="text-2xl font-semibold tracking-tight text-slate-900">How to apply</h2>
+          <p className="mt-4 leading-8 text-slate-700">
+            Add a short paragraph describing available positions, what materials to send, and
+            whether applicants should include a CV, cover letter, and research summary.
+          </p>
+          <div className="mt-6 border border-slate-200 p-5">
+            <div className="text-sm uppercase tracking-[0.18em] text-slate-500">Contact</div>
+            <div className="mt-2 text-lg text-slate-900">yaxi621@gmail.com</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default function Page() {
+  const [page, setPage] = useState('home');
+
+  return (
+    <Layout page={page} setPage={setPage}>
+      {page === 'home' && <HomePage setPage={setPage} />}
+      {page === 'research' && <ResearchPage />}
+      {page === 'people' && <PeoplePage />}
+      {page === 'publications' && <PublicationsPage />}
+      {page === 'news' && <NewsPage />}
+      {page === 'join' && <JoinPage />}
+    </Layout>
+  );
+}
