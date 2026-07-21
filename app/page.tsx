@@ -50,33 +50,16 @@ const people = [
   },
 ];
 
-const publications = [
-  {
-    title: 'De Novo Design of High-Affinity Miniprotein Binders Targeting Francisella Tularensis Virulence Factor',
-    authors:
-      'Gokce-Alpkilic G, Huang B, Liu A, Kreuk LSM, [Wang Y], Adebomi V, Bueso YF, Bera AK, Kang A, Gerben SR, Rettie S, Vafeados DK, Roullier N, Goreshnik I, Li X, Baker D, Woodward JJ, Mougous JD, Bhardwaj G.',
-    journal: 'Angewandte Chemie International Edition',
-    date: '2025',
-  },
+const selectedPublications = [
   {
     title: 'Protein interactions in human pathogens revealed through deep learning',
     authors:
       'Humphreys IR*, Zhang J*, Baek M*, [Wang Y]*, Krishnakumar A, Pei J, Anishchenko I, Tower CA, Jackson BA, Warrier T, Hung DT, Peterson SB, Mougous JD, Cong Q, Baker D.',
     journal: 'Nature Microbiology',
     date: '2024',
-  },
-  {
-    title: 'Streptomyces umbrella toxin particles block hyphal growth of competing species',
-    authors:
-      'Zhao Q, Bertolli S, Park YJ, Tan Y, Cutler KJ, Srinivas P, Asfahl KL, Fonesca-García C, Gallagher LA, Li Y, [Wang Y], Coleman-Derr D, DiMaio F, Zhang D, Peterson SB, Veesler D, Mougous JD.',
-    journal: 'Nature',
-    date: '2024',
-  },
-  {
-    title: 'The wide world of non-mammalian phospholipase D enzymes',
-    authors: '[Wang Y], Wakelam MJO, Bankaitis VA, McDermott MI.',
-    journal: 'Advances in Biological Regulation',
-    date: '2024',
+    link: 'https://doi.org/10.1038/s41564-024-01791-x',
+    image: '/images/publication-selected-1.png',
+    alt: 'Illustration for Protein interactions in human pathogens revealed through deep learning',
   },
   {
     title: 'Genetic manipulation of Patescibacteria provides mechanistic insights into microbial dark matter and the epibiotic lifestyle',
@@ -84,6 +67,9 @@ const publications = [
       '[Wang Y]*, Gallagher LA*, Andrade PA, Liu A, Humphreys IR, Turkarslan S, Cutler KJ, Arrieta-Ortiz ML, Li Y, Radey MC, McLean JS, Cong Q, Baker D, Baliga NS, Peterson SB, Mougous JD.',
     journal: 'Cell',
     date: '2023',
+    link: 'https://doi.org/10.1016/j.cell.2023.08.017',
+    image: '/images/publication-selected-2.png',
+    alt: 'Illustration for Genetic manipulation of Patescibacteria provides mechanistic insights into microbial dark matter and the epibiotic lifestyle',
   },
   {
     title: 'Discovery of a glutathione utilization pathway in Francisella that shows functional divergence between environmental and pathogenic species',
@@ -91,6 +77,9 @@ const publications = [
       '[Wang Y], Ledvina HE, Tower CA, Kambarev S, Liu E, Charity JC, Kreuk LSM, Tang Q, Chen Q, Gallagher LA, Radey MC, Rerolle GF, Li Y, Penewit KM, Turkarslan S, Skerrett SJ, Salipante SJ, Baliga NS, Woodward JJ, Dove SL, Peterson SB, Celli J, Mougous JD.',
     journal: 'Cell Host & Microbe',
     date: '2023',
+    link: 'https://doi.org/10.1016/j.chom.2023.06.010',
+    image: '/images/publication-selected-3.png',
+    alt: 'Illustration for Discovery of a glutathione utilization pathway in Francisella that shows functional divergence between environmental and pathogenic species',
   },
   {
     title: 'Noncanonical regulation of phosphatidylserine metabolism by a Sec14-like protein and a lipid kinase',
@@ -98,24 +87,56 @@ const publications = [
       '[Wang Y], Yuan P, Grabon A, Tripathi A, Lee D, Rodriguez M, Lönnfors M, Eisenberg-Bord M, Wang Z, Lam SM, Schuldiner M, Bankaitis VA.',
     journal: 'Journal of Cell Biology',
     date: '2020',
+    link: 'https://doi.org/10.1083/jcb.201907128',
+    image: '/images/publication-selected-4.png',
+    alt: 'Illustration for Noncanonical regulation of phosphatidylserine metabolism by a Sec14-like protein and a lipid kinase',
+  },
+];
+
+const otherPublications = [
+  {
+    title: 'De Novo Design of High-Affinity Miniprotein Binders Targeting Francisella Tularensis Virulence Factor',
+    authors:
+      'Gokce-Alpkilic G, Huang B, Liu A, Kreuk LSM, [Wang Y], Adebomi V, Bueso YF, Bera AK, Kang A, Gerben SR, Rettie S, Vafeados DK, Roullier N, Goreshnik I, Li X, Baker D, Woodward JJ, Mougous JD, Bhardwaj G.',
+    journal: 'Angewandte Chemie International Edition',
+    date: '2025',
+    link: 'https://doi.org/10.1002/anie.202516058',
+  },
+  {
+    title: 'Streptomyces umbrella toxin particles block hyphal growth of competing species',
+    authors:
+      'Zhao Q, Bertolli S, Park YJ, Tan Y, Cutler KJ, Srinivas P, Asfahl KL, Fonesca-García C, Gallagher LA, Li Y, [Wang Y], Coleman-Derr D, DiMaio F, Zhang D, Peterson SB, Veesler D, Mougous JD.',
+    journal: 'Nature',
+    date: '2024',
+    link: 'https://doi.org/10.1038/s41586-024-07298-z',
+  },
+  {
+    title: 'The wide world of non-mammalian phospholipase D enzymes',
+    authors: '[Wang Y], Wakelam MJO, Bankaitis VA, McDermott MI.',
+    journal: 'Advances in Biological Regulation',
+    date: '2024',
+    link: 'https://doi.org/10.1016/j.jbior.2023.101000',
   },
   {
     title: 'Mammalian phospholipase D: Function, and therapeutics',
     authors: 'McDermott MI, [Wang Y], Wakelam MJO, Bankaitis VA.',
     journal: 'Progress in Lipid Research',
     date: '2020',
+    link: 'https://doi.org/10.1016/j.plipres.2019.101018',
   },
   {
     title: 'An equal opportunity collaboration between lipid metabolism and proteins in the control of membrane trafficking in the trans-Golgi and endosomal systems',
     authors: '[Wang Y], Mousley CJ, Lete MG, Bankaitis VA.',
     journal: 'Current Opinion in Cell Biology',
     date: '2019',
+    link: 'https://doi.org/10.1016/j.ceb.2019.03.012',
   },
   {
     title: 'Insights into sRNA Genes Regulated by Two-Component Systems in the Bacillus cereus Group',
     authors: 'Mei H, Tang Q, Li X, [Wang Y], Wang J, He J.',
     journal: 'Current Bioinformatics',
     date: '2015',
+    link: 'https://doi.org/10.2174/157489361004150922151028',
   },
 ];
 
@@ -130,7 +151,7 @@ function Layout({
 }) {
   return (
     <div className="min-h-screen bg-white text-slate-900">
-      <header className="sticky top-0 z-30 border-b border-slate-200/90 bg-white/92 backdrop-blur">
+      <header className="sticky top-0 z-30 border-b border-slate-200/90 bg-white/100 backdrop-blur">
         <div className="flex items-center justify-between px-4 py-4 lg:px-18">
           <button type="button" onClick={() => setPage('home')} className="flex items-center gap-4 text-left">
             <img
@@ -168,34 +189,34 @@ function Layout({
       <main>{children}</main>
 
       <footer className="mt-16 bg-white">
-  <div className="mx-auto max-w-6xl px-6 py-10 lg:px-8">
-    <div className="grid gap-8 md:grid-cols-2">
-      <div>
-        <div className="text-lg font-semibold text-slate-900">Wang Lab @ OSU</div>
-        <p className="mt-3 max-w-md leading-7 text-slate-600">
-          Department of Microbiology
-          <br />
-          The Ohio State University
-          <br />
-          Columbus, Ohio
-        </p>
-      </div>
+        <div className="mx-auto max-w-6xl px-6 py-10 lg:px-8">
+          <div className="grid gap-8 md:grid-cols-2">
+            <div>
+              <div className="text-lg font-semibold text-slate-900">Wang Lab @ OSU</div>
+              <p className="mt-3 max-w-md leading-7 text-slate-600">
+                Department of Microbiology
+                <br />
+                The Ohio State University
+                <br />
+                Columbus, Ohio
+              </p>
+            </div>
 
-      <div className="md:text-right">
-        <div className="text-sm uppercase tracking-[0.2em] text-slate-500">Contact</div>
-        <p className="mt-3 leading-7 text-slate-700">
-          yaxi621@gmail.com
-          <br />
-          476 Biological Sciences Building, 484 W. 12th Ave
-        </p>
-      </div>
-    </div>
+            <div className="md:text-right">
+              <div className="text-sm uppercase tracking-[0.2em] text-slate-500">Contact</div>
+              <p className="mt-3 leading-7 text-slate-700">
+                yaxi621@gmail.com
+                <br />
+                476 Biological Sciences Building, 484 W. 12th Ave
+              </p>
+            </div>
+          </div>
 
-    <div className="mt-8 border-t border-slate-200 pt-6 text-center text-sm text-slate-500">
-      © 2026 Wang Lab. All rights reserved.
-    </div>
-  </div>
-</footer>
+          <div className="mt-8 border-t border-slate-200 pt-6 text-center text-sm text-slate-500">
+            © 2026 Wang Lab. All rights reserved.
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
@@ -215,11 +236,11 @@ function LandingPage() {
 
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="max-w-5xl px-6 text-center text-white">
-          <h1 className="text-3xl font-semibold tracking-tight md:text-5xl">
-            Welcome to Wang Lab!
+          <h1 className="text-3xl tracking-tight md:text-4xl">
+            WELCOME TO THE
           </h1>
-          <p className="mt-12 text-lg leading-8 text-white/95 md:text-2xl">
-            We are in the Microbiology department at The Ohio State University.
+          <p className="mt-20 text-3xl font-semibold leading-40 text-white/95 md:text-8xl">
+            WANG LAB
           </p>
         </div>
       </div>
@@ -231,8 +252,7 @@ function HomePage() {
   return (
     <section className="mx-auto max-w-6xl px-6 py-10 lg:px-8 lg:py-12">
       <div className="pt-2">
-        <p className="text-lg leading-8 text-slate-700">
-        </p>
+        <p className="text-lg leading-8 text-slate-700"></p>
       </div>
     </section>
   );
@@ -252,25 +272,38 @@ function ResearchPage() {
         </p>
       </div>
 
-      <div className="mx-auto mt-22 grid gap-10 lg:grid-cols-[350px_1fr] lg:items-start">
-        <div>
+      <div className="mx-auto mt-20 max-w-6xl">
+        <h1 className="mb-8 text-2xl font-semibold tracking-tight text-slate-900 md:text-4xl">
+          Patescibacteria: microbial dark matter
+        </h1>
+
+        <div className="text-lg leading-8 text-slate-900">
           <img
             src="/images/research-pic.png"
             alt="Scanning electron micrograph showing Saccharibacteria attached to host bacteria"
-            className="w-full h-auto"
+            className="mb-4 w-full max-w-[320px] sm:float-left sm:mr-8 sm:mb-4"
           />
-        </div>
 
-        <div>
-          <h1 className="text-3xl font-semibold tracking-tight text-slate-900 md:text-3xl">
-            Patescibacteria: microbial dark matter
-          </h1>
+          <p>
+            The major focus of our group is on a group of bacteria called Patescibacteria (also
+            known as Candidate Phyla Radiation, CPR). These bacteria unproportionally contribute to
+            the “microbial dark matter” – the large group of microorganisms on our planet that are
+            difficult to cultivate and the biology of which remain largely unknown. Patescibacteria
+            comprise a significant proportion of bacterial diversity (as high as 25% based on some
+            estimates) and are widespread in environment and human microbiomes. They share unique
+            features that distinguish them from most other bacteria: ultrasmall (~0.2 µm in width),
+            streamlined genomes (less than 1 Mbp), limited metabolic capability (generally lacking
+            biosynthetic capacity for nucleic acids, amino acids, and fatty acids), and living as
+            obligate epibionts on host bacteria. Given their unique biology and the phylogenetic
+            distance from well-studied model bacteria, Patescibacteria represent a reservoir of
+            unexplored biological mechanisms and biosynthetic pathways with bioengineering and
+            pharmaceutical potentials. In addition, these bacteria are prevalent in the human oral
+            microbiota and are closely associated with human oral health and disease. Thus, the study
+            of Patescibacteria will also provide insights into their ecological role in human
+            microbiome and their health relevance.
+          </p>
 
-          <div className="mt-8 space-y-2 text-lg leading-8 text-slate-900">
-            <p>
-              Our research focuses on Patescibacteria (CPR), an enigmatic and widespread group of bacteria that remains one of the least understood branches of the microbial world. Found in diverse environments as well as human-associated microbiomes, these organisms are distinguished by their tiny cell size, reduced genomes, limited metabolic capabilities, and host-dependent epibiotic lifestyle. We study these unusual microbes to better understand how they interact with host cells and what they can reveal about the hidden biology of microbial dark matter.
-            </p>
-          </div>
+          <div className="clear-both" />
         </div>
       </div>
 
@@ -279,7 +312,7 @@ function ResearchPage() {
           We use a combination of genetic, biochemical, structural, and bioinformatic approaches to
           study these enigmatic bacteria and their interactions with hosts. Some of our current
           focuses include:
-     </p>
+        </p>
         <ol className="list-decimal space-y-3 pl-6">
           <li>What is the range of host microorganisms that Patescibacteria can infect?</li>
           <li>
@@ -403,6 +436,90 @@ function highlightMyName(text: string) {
   });
 }
 
+function PublicationCard({
+  pub,
+  illustrated = false,
+}: {
+  pub: {
+    title: string;
+    authors: string;
+    journal: string;
+    date: string;
+    link: string;
+    image?: string;
+    alt?: string;
+  };
+  illustrated?: boolean;
+}) {
+  if (!illustrated) {
+    return (
+      <div className="pb-8">
+        <a
+          href={pub.link}
+          target="_blank"
+          rel="noreferrer"
+          className="text-2xl font-semibold leading-tight tracking-tight text-slate-900 underline underline-offset-4 hover:text-slate-700"
+        >
+          {pub.title}
+        </a>
+
+        <div className="mt-4 text-base leading-7 text-slate-700">
+          {highlightMyName(pub.authors)}
+        </div>
+
+        <div className="mt-3 text-base italic text-slate-700">
+          {pub.journal}
+        </div>
+
+        <div className="mt-1 text-sm uppercase tracking-[0.18em] text-slate-500">
+          {pub.date}
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="grid gap-8 pb-8 md:grid-cols-[300px_1fr] md:items-start">
+      <div className="rounded-2xl bg-slate-50 p-2">
+        {pub.image ? (
+          <img
+            src={pub.image}
+            alt={pub.alt || pub.title}
+            className="w-full h-auto object-contain"
+          />
+        ) : (
+          <div className="flex h-[220px] items-center justify-center bg-slate-100 text-slate-500">
+            Illustration
+          </div>
+        )}
+      </div>
+
+      <div>
+        <a
+          href={pub.link}
+          target="_blank"
+          rel="noreferrer"
+          className="text-2xl font-semibold leading-tight tracking-tight text-slate-900 underline underline-offset-4 hover:text-slate-700"
+        >
+          {pub.title}
+        </a>
+
+        <div className="mt-4 text-base leading-7 text-slate-700">
+          {highlightMyName(pub.authors)}
+        </div>
+
+        <div className="mt-3 text-base italic text-slate-700">
+          {pub.journal}
+        </div>
+
+        <div className="mt-1 text-sm uppercase tracking-[0.18em] text-slate-500">
+          {pub.date}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function PublicationsPage() {
   return (
     <section className="mx-auto max-w-6xl px-6 py-10 lg:px-8 lg:py-10">
@@ -420,31 +537,30 @@ function PublicationsPage() {
         </div>
       </div>
 
-      <div className="mt-8 max-w-5xl">
-        <p className="text-lg leading-8 text-slate-700">
-          Selected publications, listed with the most recent published work first.
+      <div className="mt-10">
+        <h2 className="text-2xl font-semibold tracking-tight text-slate-900 md:text-4xl">
+          Selected Publications
+        </h2>
+        <p className="mt-4 max-w-4xl text-lg leading-8 text-slate-700">
+          Representative publications from the lab and prior work. Click each title to open the paper.
         </p>
       </div>
 
-      <div className="mt-12 space-y-10">
-        {publications.map((pub) => (
-          <div key={pub.title} className="border-b border-slate-200 pb-8">
-            <div className="text-2xl font-semibold leading-tight tracking-tight text-slate-900">
-              {pub.title}
-            </div>
+      <div className="mt-10 space-y-8">
+        {selectedPublications.map((pub) => (
+          <PublicationCard key={pub.title} pub={pub} illustrated />
+        ))}
+      </div>
 
-            <div className="mt-4 text-base leading-7 text-slate-700">
-              {highlightMyName(pub.authors)}
-            </div>
+      <div className="mt-20">
+        <h2 className="text-2xl font-semibold tracking-tight text-slate-900 md:text-4xl">
+          Other Publications
+        </h2>
+      </div>
 
-            <div className="mt-3 text-base italic text-slate-700">
-              {pub.journal}
-            </div>
-
-            <div className="mt-1 text-sm uppercase tracking-[0.18em] text-slate-500">
-              {pub.date}
-            </div>
-          </div>
+      <div className="mt-10 space-y-10">
+        {otherPublications.map((pub) => (
+          <PublicationCard key={pub.title} pub={pub} />
         ))}
       </div>
     </section>
@@ -479,15 +595,9 @@ function NewsPage() {
 
           <div className="mt-10 space-y-8">
             <div className="border-b border-slate-200 pb-8">
-              <div className="text-2xl font-semibold tracking-tight text-slate-900">
-              
-              </div>
-              <div className="mt-2 text-sm uppercase tracking-[0.18em] text-slate-500">
-              
-              </div>
-              <p className="mt-4 max-w-4xl leading-8 text-slate-700">
-              
-              </p>
+              <div className="text-2xl font-semibold tracking-tight text-slate-900"></div>
+              <div className="mt-2 text-sm uppercase tracking-[0.18em] text-slate-500"></div>
+              <p className="mt-4 max-w-4xl leading-8 text-slate-700"></p>
             </div>
           </div>
         </div>
@@ -495,62 +605,58 @@ function NewsPage() {
     </section>
   );
 }
-
 function JoinPage() {
   return (
-    <section className="relative overflow-hidden">
-      <div className="absolute inset-0">
-        <img
-          src="/images/contact-bg.png"
-          alt="Columbus skyline with deer statue"
-          className="h-full w-full scale-110 object-cover"
-        />
-        <div className="absolute inset-0 bg-white/45" />
-      </div>
+    <section className="mx-auto max-w-7xl px-6 py-14 lg:px-8 lg:py-16">
+      <div className="grid gap-10 lg:grid-cols-[640px_1fr] lg:items-start">
+        <div>
+          <img
+            src="/images/contact-bg.png"
+            alt="Columbus skyline with deer statue"
+            className="w-full rounded-2xl object-cover"
+          />
+        </div>
 
-      <div className="relative mx-auto max-w-6xl px-6 py-14 lg:px-8 lg:py-16">
-        <div className="mt-12 flex justify-center">
-          <div className="w-full max-w-2xl rounded-2xl bg-white/50 p-8 backdrop-blur-sm">
-            <h2 className="text-3xl font-bold tracking-tight text-slate-900">
-              Join us
-            </h2>
+        <div>
+          <h1 className="text-3xl font-bold tracking-tight text-slate-900 md:text-3xl">
+            Contact
+          </h1>
 
-            <div className="mt-6 space-y-6 text-slate-800">
-              <div>
-                <h3 className="text-lg font-semibold text-slate-900">Students</h3>
-                <p className="mt-2 text-lg leading-8">
-                  Graduate students and undergraduate students are welcome to inquire.
+          <div className="mt-8 space-y-4 text-slate-800">
+            <div>
+              <h2 className="text-base font-semibold text-slate-900">Students</h2>
+              <p className="mt-2 text-sm leading-6">
+                Graduate students and undergraduate students are welcome to inquire.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-base font-semibold text-slate-900">
+                Postdoctoral fellow
+              </h2>
+              <p className="mt-2 text-sm leading-6">
+                Candidates with experience in microbiology, biochemistry, molecular biology and
+                genetics are encouraged to send application and CV to the email address below.
+              </p>
+            </div>
+
+            <div className="border-w border-slate-300 pt-6">
+              <h2 className="text-3xl space-y-12 font-bold text-slate-900">Get in touch</h2>
+              <div className="mt-3 space-y-6 text-sm leading-6">
+                <p>
+                  <span className="font-semibold">Email:</span> yaxi621@gmail.com
                 </p>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-semibold text-slate-900">
-                  Postdoctoral fellow
-                </h3>
-                <p className="mt-2 text-lg leading-8">
-                  Candidates with experience in microbiology, biochemistry, molecular biology and
-                  genetics are encouraged to send application and CV to the email address below.
+                <p>
+                  <span className="font-semibold">Our lab is located at:</span>{' '}
+                  <a
+                    href="https://maps.app.goo.gl/YKfoWQ6jLyxYZprF8"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="underline underline-offset-4 hover:text-slate-950"
+                  >
+                    476 Biological Sciences Building, 484 W. 12th Ave
+                  </a>
                 </p>
-              </div>
-
-              <div className="border-t border-slate-300 pt-6">
-                <h3 className="text-lg font-semibold text-slate-900">Get in touch</h3>
-                <div className="mt-3 space-y-3 text-lg leading-8">
-                  <p>
-                    <span className="font-semibold">Email:</span> yaxi621@gmail.com
-                  </p>
-                  <p>
-                    <span className="font-semibold">Our lab is located at:</span>{' '}
-                    <a
-                      href="https://www.google.com/maps/search/?api=1&query=476+Biological+Sciences+Building,+484+W.+12th+Ave,+Columbus,+OH"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="underline underline-offset-4 hover:text-slate-950"
-                    >
-                      476 Biological Sciences Building, 484 W. 12th Ave
-                    </a>
-                  </p>
-                </div>
               </div>
             </div>
           </div>
