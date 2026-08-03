@@ -153,7 +153,14 @@ function Layout({
     <div className="min-h-screen bg-white text-slate-900">
       <header className="sticky top-0 z-30 border-b border-slate-200/90 bg-white/100 backdrop-blur">
         <div className="flex items-center justify-between px-4 py-4 lg:px-18">
-          <button type="button" onClick={() => setPage('home')} className="flex items-center gap-4 text-left">
+          <button
+            type="button"
+            onClick={() => {
+              setPage('home');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className="flex items-center gap-4 text-left"
+          >
             <img
               src="/images/lab-logo.jpg"
               alt="Wang Lab logo"
@@ -171,7 +178,10 @@ function Layout({
                 <button
                   type="button"
                   key={item.key}
-                  onClick={() => setPage(item.key)}
+                  onClick={() => {
+                    setPage(item.key);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
                   className={
                     active
                       ? 'font-semibold text-slate-950 underline underline-offset-4'
@@ -225,22 +235,22 @@ function LandingPage() {
   return (
     <section className="relative w-full overflow-hidden">
       <img
-        src="/images/osu-building-hero.png"
+        src="/images/landing_page.svg"
         alt="Biological Sciences Building at The Ohio State University"
-        className="h-[80vh] w-full object-cover object-[center_35%]"
+        className="h-[60vh] w-full object-contain"
       />
 
-      <div className="absolute inset-0 bg-black/12" />
+      <div className="absolute inset-0 bg-black/0" />
       <div className="absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-white/60 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-white/55 to-transparent" />
 
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="max-w-5xl px-6 text-center text-white">
           <h1 className="text-3xl tracking-tight md:text-4xl">
-            WELCOME TO THE
+            
           </h1>
           <p className="mt-20 text-3xl font-semibold leading-40 text-white/95 md:text-8xl">
-            WANG LAB
+           
           </p>
         </div>
       </div>
@@ -263,9 +273,9 @@ function ResearchPage() {
     <section className="mx-auto max-w-6xl px-6 py-14 lg:px-8 lg:py-10">
       <div className="mb-14">
         <h2 className="text-center text-2xl font-semibold tracking-tight text-slate-900 md:text-5xl">
-          What we do
+         
         </h2>
-        <p className="mx-auto mt-6 max-w-5xl text-lg leading-8 text-slate-700">
+        <p className="mx-auto mt-6 max-w-5xl text-lg leading-8 text-slate-900">
           The Wang Lab investigates the molecular mechanisms underlying bacterial host interactions,
           with a particular focus on Patescibacteria, surface structures, adhesion, and interspecies
           relationships in host-associated environments.
@@ -577,13 +587,21 @@ function NewsPage() {
           </h1>
 
           <div className="mt-10 space-y-8">
-            <div className="border-b border-slate-200 pb-8">
-              <div className="text-2xl font-semibold tracking-tight text-slate-900">
-                Wang Lab starts in January, 2027!
+            <div className="grid gap-8 border-b border-slate-200 pb-8 md:grid-cols-[1fr_320px] md:items-center">
+              <div>
+                <div className="text-2xl font-semibold tracking-tight text-slate-900">
+                  Wang Lab starts in January 2027!
+                </div>
+                <p className="mt-4 max-w-3xl leading-8 text-slate-700">
+                  And the adventure begins.
+                </p>
               </div>
-              <p className="mt-4 max-w-4xl leading-8 text-slate-700">
-                And the adventure begins.
-              </p>
+
+              <img
+                src="/images/news-lab-start-2027.png"
+                alt="Wang Lab starting in January 2027"
+                className="h-56 w-full rounded-2xl object-cover"
+              />
             </div>
           </div>
         </div>
@@ -674,9 +692,13 @@ export default function Page() {
       {page === 'home' && (
         <>
           <LandingPage />
-          <HomePage />
+
+          <div id="research" className="scroll-mt-28">
+            <ResearchPage />
+          </div>
         </>
       )}
+
       {page === 'research' && <ResearchPage />}
       {page === 'people' && <PeoplePage setPage={setPage} />}
       {page === 'person-0' && <PersonDetailPage person={people[0]} setPage={setPage} />}
