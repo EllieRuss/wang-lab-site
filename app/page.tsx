@@ -626,11 +626,6 @@ function NewsPage() {
         <article className="grid gap-6 md:grid-cols-[280px_minmax(0,1fr)] md:items-start md:gap-10">
           <div className="grid grid-cols-2 gap-3 md:grid-cols-1">
             <img
-              src="/images/news-lab-start-2027-left.png"
-              alt="Wang Lab preparations for the January 2027 launch"
-              className="aspect-[4/3] w-full rounded-lg object-cover"
-            />
-            <img
               src="/images/news-lab-start-2027.png"
               alt="Wang Lab starting in January 2027"
               className="aspect-[4/3] w-full rounded-lg object-cover"
