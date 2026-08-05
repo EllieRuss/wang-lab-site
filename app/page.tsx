@@ -149,17 +149,22 @@ function Layout({
   setPage: (page: PageKey) => void;
   children: React.ReactNode;
 }) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const navigateTo = (nextPage: PageKey) => {
+    setPage(nextPage);
+    setMobileMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className="min-h-screen overflow-x-hidden bg-white text-slate-900">
-      <header className="sticky top-0 z-30 border-b border-slate-200/90 bg-white/100 backdrop-blur">
-        <div className="flex flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:py-4 lg:px-8">
+      <header className="sticky top-0 z-30 border-b border-slate-200/90 bg-white/95 backdrop-blur">
+        <div className="flex items-center justify-between px-4 py-3 sm:px-6 sm:py-4 lg:px-8">
           <button
             type="button"
-            onClick={() => {
-              setPage('home');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            className="flex items-center gap-3 self-start text-left sm:gap-4"
+            onClick={() => navigateTo('home')}
+            className="flex items-center gap-3 text-left sm:gap-4"
           >
             <img
               src="/images/lab-logo.jpg"
@@ -171,21 +176,18 @@ function Layout({
             </div>
           </button>
 
-          <nav className="flex w-full items-center gap-5 overflow-x-auto pb-1 text-sm text-slate-900 sm:ml-4 sm:w-auto sm:justify-end sm:gap-x-6 sm:pb-0 sm:text-base lg:gap-x-8 lg:text-lg">
+          <nav className="hidden items-center gap-x-6 text-base text-slate-900 md:flex lg:gap-x-8 lg:text-lg">
             {navItems.map((item) => {
               const active = page === item.key;
               return (
                 <button
                   type="button"
                   key={item.key}
-                  onClick={() => {
-                    setPage(item.key);
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }}
+                  onClick={() => navigateTo(item.key)}
                   className={
                     active
-                      ? 'shrink-0 whitespace-nowrap font-semibold text-slate-950 underline underline-offset-4'
-                      : 'shrink-0 whitespace-nowrap hover:text-slate-950'
+                      ? 'font-semibold text-slate-950 underline underline-offset-4'
+                      : 'hover:text-slate-950'
                   }
                 >
                   {item.label}
@@ -193,33 +195,56 @@ function Layout({
               );
             })}
           </nav>
+
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen((open) => !open)}
+            className="flex h-11 w-11 items-center justify-center rounded-lg border border-slate-300 text-slate-900 md:hidden"
+            aria-label="Open navigation menu"
+            aria-expanded={mobileMenuOpen}
+          >
+            <span className="text-2xl leading-none">{mobileMenuOpen ? '×' : '☰'}</span>
+          </button>
         </div>
+
+        {mobileMenuOpen && (
+          <nav className="border-t border-slate-200 bg-white px-4 py-3 md:hidden">
+            <div className="flex flex-col">
+              {navItems.map((item) => {
+                const active = page === item.key;
+                return (
+                  <button
+                    type="button"
+                    key={item.key}
+                    onClick={() => navigateTo(item.key)}
+                    className={
+                      active
+                        ? 'border-b border-slate-100 px-2 py-3 text-left font-semibold text-slate-950'
+                        : 'border-b border-slate-100 px-2 py-3 text-left text-slate-700 hover:text-slate-950'
+                    }
+                  >
+                    {item.label}
+                  </button>
+                );
+              })}
+            </div>
+          </nav>
+        )}
       </header>
 
       <main>{children}</main>
 
       <footer className="mt-16 bg-white">
         <div className="mx-auto max-w-6xl px-6 py-10 lg:px-8">
-          <div className="grid gap-8 md:grid-cols-2">
-            <div>
-              <div className="text-lg font-semibold text-slate-900">Wang Lab @ OSU</div>
-              <p className="mt-3 max-w-md leading-7 text-slate-600">
-                Department of Microbiology
-                <br />
-                The Ohio State University
-                <br />
-                Columbus, Ohio
-              </p>
-            </div>
-
-            <div className="md:text-right">
-              <div className="text-sm uppercase tracking-[0.2em] text-slate-500">Contact</div>
-              <p className="mt-3 break-words leading-7 text-slate-700">
-                yaxi621@gmail.com
-                <br />
-                476 Biological Sciences Building, 484 W. 12th Ave
-              </p>
-            </div>
+          <div>
+            <div className="text-lg font-semibold text-slate-900">Wang Lab @ OSU</div>
+            <p className="mt-3 max-w-md break-words leading-7 text-slate-600">
+              Department of Microbiology
+              <br />
+              The Ohio State University
+              <br />
+              Columbus, Ohio
+            </p>
           </div>
 
           <div className="mt-8 border-t border-slate-200 pt-6 text-center text-sm text-slate-500">
@@ -233,22 +258,20 @@ function Layout({
 
 function LandingPage() {
   return (
-    <section className="relative w-full overflow-hidden pt-4 sm:pt-6 lg:pt-8">
-      <div className="mx-auto grid max-w-[1600px] items-center gap-4 px-3 sm:px-5 lg:min-h-[50vh] lg:grid-cols-[minmax(0,1fr)_240px] lg:gap-6 lg:px-8 xl:grid-cols-[minmax(0,1fr)_280px]">
+    <section className="w-full px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
+      <div className="mx-auto flex min-h-[48vh] max-w-6xl items-center justify-center">
         <img
           src="/images/landing_page.svg"
-          alt="Wang Lab landing-page illustration"
-          className="h-auto max-h-[50vh] w-full object-contain"
-        />
-
-        <img
-          src="/images/landing-page-right.png"
-          alt="Additional Wang Lab landing-page illustration"
-          className="hidden max-h-[38vh] w-full object-contain lg:block xl:max-h-[42vh]"
+          alt="Welcome to the Wang Lab with bacteria illustration"
+          className="h-auto max-h-[42vh] w-full max-w-4xl object-contain sm:max-h-[46vh]"
         />
       </div>
 
-      <div className="absolute inset-x-0 bottom-0 h-4 bg-gradient-to-t from-white/20 to-transparent" />
+      <p className="mx-auto mt-6 max-w-5xl text-center text-base leading-7 text-slate-800 sm:mt-8 sm:text-lg sm:leading-8">
+        The Wang Lab investigates the molecular mechanisms underlying bacterial host interactions,
+        with a particular focus on Patescibacteria, surface structures, adhesion, and interspecies
+        relationships in host-associated environments.
+      </p>
     </section>
   );
 }
@@ -715,15 +738,7 @@ export default function Page() {
 
   return (
     <Layout page={page} setPage={setPage}>
-      {page === 'home' && (
-        <>
-          <LandingPage />
-
-          <div id="research" className="scroll-mt-28">
-            <ResearchPage />
-          </div>
-        </>
-      )}
+      {page === 'home' && <LandingPage />}
 
       {page === 'research' && <ResearchPage />}
       {page === 'people' && <PeoplePage setPage={setPage} />}
