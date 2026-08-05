@@ -272,7 +272,7 @@ function LandingPage() {
       <div className="mx-auto grid max-w-5xl items-center gap-8 md:grid-cols-[42%_58%] md:gap-6">
         <div className="mx-auto w-full max-w-[260px] sm:max-w-[300px] md:max-w-[340px]">
           <img
-            src="/images/landing-bacteria.svg"
+            src="/images/landing-bacteria.png"
             alt="Cartoon showing bacterial interactions"
             className="block h-auto w-full"
           />
