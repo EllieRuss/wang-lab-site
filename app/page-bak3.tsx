@@ -150,28 +150,28 @@ function Layout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-white text-slate-900">
+    <div className="min-h-screen bg-white text-slate-900">
       <header className="sticky top-0 z-30 border-b border-slate-200/90 bg-white/100 backdrop-blur">
-        <div className="flex flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:py-4 lg:px-8">
+        <div className="flex items-center justify-between px-4 py-4 lg:px-18">
           <button
             type="button"
             onClick={() => {
               setPage('home');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="flex items-center gap-3 self-start text-left sm:gap-4"
+            className="flex items-center gap-4 text-left"
           >
             <img
               src="/images/lab-logo.jpg"
               alt="Wang Lab logo"
-              className="h-14 w-auto object-contain sm:h-16 lg:h-20"
+              className="h-20 w-auto object-contain"
             />
-            <div className="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">
+            <div className="text-2xl font-bold tracking-tight text-slate-900">
               WANG LAB
             </div>
           </button>
 
-          <nav className="flex w-full items-center gap-5 overflow-x-auto pb-1 text-sm text-slate-900 sm:ml-4 sm:w-auto sm:justify-end sm:gap-x-6 sm:pb-0 sm:text-base lg:gap-x-8 lg:text-lg">
+          <nav className="ml-4 flex flex-wrap items-center justify-end gap-x-8 gap-y-3 text-lg text-slate-900">
             {navItems.map((item) => {
               const active = page === item.key;
               return (
@@ -184,8 +184,8 @@ function Layout({
                   }}
                   className={
                     active
-                      ? 'shrink-0 whitespace-nowrap font-semibold text-slate-950 underline underline-offset-4'
-                      : 'shrink-0 whitespace-nowrap hover:text-slate-950'
+                      ? 'font-semibold text-slate-950 underline underline-offset-4'
+                      : 'hover:text-slate-950'
                   }
                 >
                   {item.label}
@@ -214,7 +214,7 @@ function Layout({
 
             <div className="md:text-right">
               <div className="text-sm uppercase tracking-[0.2em] text-slate-500">Contact</div>
-              <p className="mt-3 break-words leading-7 text-slate-700">
+              <p className="mt-3 leading-7 text-slate-700">
                 yaxi621@gmail.com
                 <br />
                 476 Biological Sciences Building, 484 W. 12th Ave
@@ -233,22 +233,25 @@ function Layout({
 
 function LandingPage() {
   return (
-    <section className="relative w-full overflow-hidden pt-4 sm:pt-6 lg:pt-8">
-      <div className="mx-auto grid max-w-[1600px] items-center gap-4 px-3 sm:px-5 lg:min-h-[50vh] lg:grid-cols-[minmax(0,1fr)_240px] lg:gap-6 lg:px-8 xl:grid-cols-[minmax(0,1fr)_280px]">
-        <img
-          src="/images/landing_page.svg"
-          alt="Wang Lab landing-page illustration"
-          className="h-auto max-h-[50vh] w-full object-contain"
-        />
-
-        <img
-          src="/images/landing-page-right.png"
-          alt="Additional Wang Lab landing-page illustration"
-          className="hidden max-h-[38vh] w-full object-contain lg:block xl:max-h-[42vh]"
-        />
-      </div>
+    <section className="relative w-full overflow-hidden pt-6 lg:pt-8">
+      <img
+        src="/images/landing_page.svg"
+        alt="Biological Sciences Building at The Ohio State University"
+        className="h-[50vh] w-full object-contain"
+      />
 
       <div className="absolute inset-x-0 bottom-0 h-4 bg-gradient-to-t from-white/20 to-transparent" />
+
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="max-w-5xl px-6 text-center text-white">
+          <h1 className="text-3xl tracking-tight md:text-4xl">
+
+          </h1>
+          <p className="mt-20 text-3xl font-semibold leading-40 text-white/95 md:text-8xl">
+
+          </p>
+        </div>
+      </div>
     </section>
   );
 }
@@ -265,28 +268,28 @@ function HomePage() {
 
 function ResearchPage() {
   return (
-    <section className="mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-10">
+    <section className="mx-auto max-w-6xl px-6 py-14 lg:px-8 lg:py-10">
       <div className="mb-14">
         <h2 className="text-center text-2xl font-semibold tracking-tight text-slate-900 md:text-5xl">
          
         </h2>
-        <p className="mx-auto mt-4 max-w-5xl text-base leading-7 text-slate-900 sm:mt-6 sm:text-lg sm:leading-8">
+        <p className="mx-auto mt-6 max-w-5xl text-lg leading-8 text-slate-900">
           The Wang Lab investigates the molecular mechanisms underlying bacterial host interactions,
           with a particular focus on Patescibacteria, surface structures, adhesion, and interspecies
           relationships in host-associated environments.
         </p>
       </div>
 
-      <div className="mx-auto mt-12 max-w-6xl sm:mt-16 lg:mt-20">
-        <h1 className="mb-6 text-2xl font-semibold tracking-tight text-slate-900 sm:mb-8 md:text-4xl">
+      <div className="mx-auto mt-20 max-w-6xl">
+        <h1 className="mb-8 text-2xl font-semibold tracking-tight text-slate-900 md:text-4xl">
           Patescibacteria: microbial dark matter
         </h1>
 
-        <div className="text-base leading-7 text-slate-900 sm:text-lg sm:leading-8">
+        <div className="text-lg leading-8 text-slate-900">
           <img
             src="/images/research-pic.png"
             alt="Scanning electron micrograph showing Saccharibacteria attached to host bacteria"
-            className="mb-5 w-full rounded-xl object-contain sm:float-left sm:mb-4 sm:mr-8 sm:max-w-[320px]"
+            className="mb-4 w-full max-w-[320px] sm:float-left sm:mr-8 sm:mb-4"
           />
 
           <p>
@@ -312,13 +315,13 @@ function ResearchPage() {
         </div>
       </div>
 
-      <div className="mt-12 max-w-6xl sm:mt-16">
-        <h2 className="mb-6 text-2xl font-semibold tracking-tight text-slate-900 sm:mb-8 md:text-4xl">
+      <div className="mt-16 max-w-6xl">
+        <h2 className="mb-8 text-2xl font-semibold tracking-tight text-slate-900 md:text-4xl">
           Patescibacteria life cycle
         </h2>
 
-        <div className="grid gap-6 md:grid-cols-[minmax(0,1fr)_340px] md:items-start lg:grid-cols-[minmax(0,1fr)_420px] lg:gap-8">
-          <p className="text-base leading-7 text-slate-900 sm:text-lg sm:leading-8">
+        <div className="grid gap-8 lg:grid-cols-[1fr_420px] lg:items-start">
+          <p className="text-lg leading-8 text-slate-900">
             When Patescibacteria recognize a compatible Actinobacterial host, they attach to the
             host-cell surface through a variety of mechanisms. This attachment can arrest host-cell
             growth as the Patescibacterial cells exploit the host’s metabolic functions to support
@@ -331,12 +334,12 @@ function ResearchPage() {
           <img
             src="/images/patescibacteria-life-cycle.png"
             alt="Cartoon diagram of the Patescibacteria life cycle"
-            className="mx-auto w-full max-w-[520px] rounded-2xl object-contain"
+            className="w-full rounded-2xl object-contain"
           />
         </div>
       </div>
 
-      <div className="mt-14 max-w-6xl space-y-3 text-base leading-7 text-slate-900 sm:mt-20 sm:text-lg sm:leading-8">
+      <div className="mt-20 max-w-6xl space-y-2 text-lg leading-8 text-slate-900">
         <p>
           We use a combination of genetic, biochemical, structural, and bioinformatic approaches to
           study these enigmatic bacteria and their interactions with hosts. Some of our current
@@ -370,7 +373,7 @@ function ResearchPage() {
 
 function PeoplePage({ setPage }: { setPage: (page: PageKey) => void }) {
   return (
-    <section className="mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
+    <section className="mx-auto max-w-6xl px-6 py-14 lg:px-8 lg:py-16">
       <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
         {people.map((person, index) => (
           <button
@@ -384,7 +387,7 @@ function PeoplePage({ setPage }: { setPage: (page: PageKey) => void }) {
                 <img
                   src={person.image}
                   alt={person.name}
-                  className="h-[320px] w-full object-cover sm:h-[380px] lg:h-[420px]"
+                  className="h-[420px] w-full object-cover"
                 />
               ) : (
                 <div className="flex h-[420px] items-center justify-center rounded-2xl bg-slate-100 text-slate-500">
@@ -414,7 +417,7 @@ function PersonDetailPage({
   setPage: (page: PageKey) => void;
 }) {
   return (
-    <section className="mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
+    <section className="mx-auto max-w-6xl px-6 py-14 lg:px-8 lg:py-16">
       <button
         type="button"
         onClick={() => setPage('people')}
@@ -487,7 +490,7 @@ function PublicationCard({
           href={pub.link}
           target="_blank"
           rel="noreferrer"
-          className="text-xl font-semibold leading-tight tracking-tight text-slate-900 underline underline-offset-4 hover:text-slate-700 sm:text-2xl"
+          className="text-2xl font-semibold leading-tight tracking-tight text-slate-900 underline underline-offset-4 hover:text-slate-700"
         >
           {pub.title}
         </a>
@@ -508,7 +511,7 @@ function PublicationCard({
   }
 
   return (
-    <div className="grid gap-5 pb-8 sm:gap-8 md:grid-cols-[260px_minmax(0,1fr)] md:items-start lg:grid-cols-[300px_minmax(0,1fr)]">
+    <div className="grid gap-8 pb-8 md:grid-cols-[300px_1fr] md:items-start">
       <div className="rounded-2xl bg-slate-50 p-2">
         {pub.image ? (
           <img
@@ -528,7 +531,7 @@ function PublicationCard({
           href={pub.link}
           target="_blank"
           rel="noreferrer"
-          className="text-xl font-semibold leading-tight tracking-tight text-slate-900 underline underline-offset-4 hover:text-slate-700 sm:text-2xl"
+          className="text-2xl font-semibold leading-tight tracking-tight text-slate-900 underline underline-offset-4 hover:text-slate-700"
         >
           {pub.title}
         </a>
@@ -551,12 +554,12 @@ function PublicationCard({
 
 function PublicationsPage() {
   return (
-    <section className="mx-auto max-w-6xl px-5 py-8 sm:px-6 sm:py-10 lg:px-8">
+    <section className="mx-auto max-w-6xl px-6 py-10 lg:px-8 lg:py-10">
       <div className="relative overflow-hidden rounded-2xl">
         <img
           src="/images/publications-banner.png"
           alt="Playdough-style campus illustration"
-          className="h-52 w-full object-cover sm:h-[30vh] lg:h-[34vh]"
+          className="h-[34vh] w-full object-cover"
         />
         <div className="absolute inset-0 bg-black/10" />
         <div className="absolute inset-x-0 bottom-0 p-6 lg:p-8">
@@ -598,7 +601,7 @@ function PublicationsPage() {
 
 function NewsPage() {
   return (
-    <section className="mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
+    <section className="mx-auto max-w-6xl px-6 py-14 lg:px-8 lg:py-16">
       <div className="space-y-16">
         <div>
           <h1 className="text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">
@@ -606,7 +609,7 @@ function NewsPage() {
           </h1>
 
           <div className="mt-10 space-y-8">
-            <div className="grid gap-6 border-b border-slate-200 pb-8 lg:grid-cols-[minmax(0,1fr)_520px] lg:items-center lg:gap-8">
+            <div className="grid gap-8 border-b border-slate-200 pb-8 md:grid-cols-[1fr_320px] md:items-center">
               <div>
                 <div className="text-2xl font-semibold tracking-tight text-slate-900">
                   Wang Lab starts in January 2027!
@@ -616,18 +619,11 @@ function NewsPage() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                <img
-                  src="/images/news-lab-start-2027-left.png"
-                  alt="Wang Lab preparations for the January 2027 launch"
-                  className="h-52 w-full rounded-2xl object-cover sm:h-56"
-                />
-                <img
-                  src="/images/news-lab-start-2027.png"
-                  alt="Wang Lab starting in January 2027"
-                  className="h-52 w-full rounded-2xl object-cover sm:h-56"
-                />
-              </div>
+              <img
+                src="/images/news-lab-start-2027.png"
+                alt="Wang Lab starting in January 2027"
+                className="h-56 w-full rounded-2xl object-cover"
+              />
             </div>
           </div>
         </div>
@@ -651,8 +647,8 @@ function NewsPage() {
 }
 function JoinPage() {
   return (
-    <section className="mx-auto max-w-7xl px-5 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
-      <div className="grid gap-8 lg:grid-cols-[minmax(0,640px)_minmax(0,1fr)] lg:items-start lg:gap-10">
+    <section className="mx-auto max-w-7xl px-6 py-14 lg:px-8 lg:py-16">
+      <div className="grid gap-10 lg:grid-cols-[640px_1fr] lg:items-start">
         <div>
           <img
             src="/images/contact-bg.png"
