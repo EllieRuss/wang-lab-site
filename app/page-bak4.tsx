@@ -159,7 +159,7 @@ function Layout({
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-white text-slate-900">
-      <header className="sticky top-0 z-30 bg-white/95 backdrop-blur">
+      <header className="sticky top-0 z-30 border-b border-slate-200/90 bg-white/95 backdrop-blur">
         <div className="flex items-center justify-between px-4 py-3 sm:px-6 sm:py-4 lg:px-8">
           <button
             type="button"
@@ -208,7 +208,7 @@ function Layout({
         </div>
 
         {mobileMenuOpen && (
-          <nav className="bg-white px-4 py-3 md:hidden">
+          <nav className="border-t border-slate-200 bg-white px-4 py-3 md:hidden">
             <div className="flex flex-col">
               {navItems.map((item) => {
                 const active = page === item.key;
@@ -219,8 +219,8 @@ function Layout({
                     onClick={() => navigateTo(item.key)}
                     className={
                       active
-                        ? 'px-2 py-3 text-left font-semibold text-slate-950'
-                        : 'px-2 py-3 text-left text-slate-700 hover:text-slate-950'
+                        ? 'border-b border-slate-100 px-2 py-3 text-left font-semibold text-slate-950'
+                        : 'border-b border-slate-100 px-2 py-3 text-left text-slate-700 hover:text-slate-950'
                     }
                   >
                     {item.label}
@@ -234,30 +234,32 @@ function Layout({
 
       <main>{children}</main>
 
-      <footer className="mt-16 bg-slate-100">
+      <footer className="mt-16 bg-white">
         <div className="mx-auto max-w-6xl px-6 py-10 lg:px-8">
-          <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
-            <div className="flex justify-center sm:justify-start">
-              <img
-                src="/images/osu-arts-sciences-logo.svg"
-                alt="The Ohio State University College of Arts and Sciences logo"
-                className="h-16 w-auto object-contain sm:h-20"
-              />
-            </div>
+          <div className="border-t border-slate-300 pt-8">
+            <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex justify-center sm:justify-start">
+                <img
+                  src="/images/osu-arts-sciences-logo.jpg"
+                  alt="The Ohio State University logo"
+                  className="h-16 w-auto object-contain sm:h-20"
+                />
+              </div>
 
-            <div className="text-center sm:text-right">
-              <div className="text-lg font-semibold text-slate-900">Wang Lab @ OSU</div>
-              <p className="mt-3 break-words leading-7 text-slate-600">
-                Department of Microbiology
-                <br />
-                The Ohio State University
-                <br />
-                Columbus, Ohio
-              </p>
+              <div className="text-center sm:text-right">
+                <div className="text-lg font-semibold text-slate-900">Wang Lab @ OSU</div>
+                <p className="mt-3 break-words leading-7 text-slate-600">
+                  Department of Microbiology
+                  <br />
+                  The Ohio State University
+                  <br />
+                  Columbus, Ohio
+                </p>
+              </div>
             </div>
           </div>
 
-          <div className="mt-8 pt-2 text-center text-sm text-slate-500">
+          <div className="mt-8 border-t border-slate-200 pt-6 text-center text-sm text-slate-500">
             © 2026 Wang Lab. All rights reserved.
           </div>
         </div>
@@ -348,6 +350,30 @@ function ResearchPage() {
           </p>
 
           <div className="clear-both" />
+        </div>
+      </div>
+
+      <div className="mt-12 max-w-6xl sm:mt-16">
+        <h2 className="mb-6 text-2xl font-semibold tracking-tight text-slate-900 sm:mb-8 md:text-4xl">
+          Patescibacteria life cycle
+        </h2>
+
+        <div className="grid gap-6 md:grid-cols-[minmax(0,1fr)_340px] md:items-start lg:grid-cols-[minmax(0,1fr)_420px] lg:gap-8">
+          <p className="text-base leading-7 text-slate-900 sm:text-lg sm:leading-8">
+            When Patescibacteria recognize a compatible Actinobacterial host, they attach to the
+            host-cell surface through a variety of mechanisms. This attachment can arrest host-cell
+            growth as the Patescibacterial cells exploit the host’s metabolic functions to support
+            their own growth and reproduction. The attached mother cell enlarges and enters a
+            relatively stationary phase while producing smaller progeny. These offspring then
+            detach and disperse to search for new host cells, beginning another round of attachment
+            and replication.
+          </p>
+
+          <img
+            src="/images/patescibacteria-life-cycle.png"
+            alt="Cartoon diagram of the Patescibacteria life cycle"
+            className="mx-auto w-full max-w-[520px] rounded-2xl object-contain"
+          />
         </div>
       </div>
 
@@ -571,7 +597,7 @@ function PublicationsPage() {
         <img
           src="/images/publications-banner.png"
           alt="Playdough-style campus illustration"
-          className="h-36 w-full object-cover sm:h-40 lg:h-44"
+          className="h-52 w-full object-cover sm:h-[30vh] lg:h-[34vh]"
         />
         <div className="absolute inset-0 bg-black/10" />
         <div className="absolute inset-x-0 bottom-0 p-6 lg:p-8">
@@ -613,58 +639,52 @@ function PublicationsPage() {
 
 function NewsPage() {
   return (
-    <section className="mx-auto max-w-5xl px-5 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
-      <h1 className="text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">
-        LAB NEWS
-      </h1>
+    <section className="mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
+      <div className="space-y-16">
+        <div>
+          <h1 className="text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">
+            LAB NEWS
+          </h1>
 
-      <div className="mt-10 space-y-14">
-        <article className="grid gap-6 md:grid-cols-[280px_minmax(0,1fr)] md:items-start md:gap-10">
-          <div className="grid grid-cols-2 gap-3 md:grid-cols-1">
-            <img
-              src="/images/news-lab-start-2027.png"
-              alt="Wang Lab starting in January 2027"
-              className="aspect-[4/3] w-full rounded-lg object-cover"
-            />
-          </div>
+          <div className="mt-10 space-y-8">
+            <div className="grid gap-6 border-b border-slate-200 pb-8 lg:grid-cols-[minmax(0,1fr)_520px] lg:items-center lg:gap-8">
+              <div>
+                <div className="text-2xl font-semibold tracking-tight text-slate-900">
+                  Wang Lab starts in January 2027!
+                </div>
+                <p className="mt-4 max-w-3xl leading-8 text-slate-700">
+                  And the adventure begins.
+                </p>
+              </div>
 
-          <div>
-            <div className="text-base text-slate-500">January 2027</div>
-            <h2 className="mt-3 text-2xl font-medium tracking-tight text-slate-900 sm:text-3xl">
-              Wang Lab starts in January 2027!
-            </h2>
-            <p className="mt-5 text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
-            </p>
-            <button
-              type="button"
-              className="mt-5 text-base font-medium text-slate-900 hover:text-slate-600 sm:text-lg"
-            >
-            </button>
-          </div>
-        </article>
-      </div>
-
-      <div className="mt-20">
-        <h2 className="text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">
-          ACTIVITIES
-        </h2>
-
-        <div className="mt-10 space-y-14">
-          <article className="grid gap-6 md:grid-cols-[280px_minmax(0,1fr)] md:items-start md:gap-10">
-            <div className="flex aspect-[4/3] items-center justify-center rounded-lg bg-slate-100 text-slate-400">
-              Photo
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <img
+                  src="/images/news-lab-start-2027-left.png"
+                  alt="Wang Lab preparations for the January 2027 launch"
+                  className="h-52 w-full rounded-2xl object-cover sm:h-56"
+                />
+                <img
+                  src="/images/news-lab-start-2027.png"
+                  alt="Wang Lab starting in January 2027"
+                  className="h-52 w-full rounded-2xl object-cover sm:h-56"
+                />
+              </div>
             </div>
+          </div>
+        </div>
 
-            <div>
-              <div className="text-base text-slate-500">Coming soon</div>
-              <h3 className="mt-3 text-2xl font-medium tracking-tight text-slate-900 sm:text-3xl">
-                Lab activities
-              </h3>
-              <p className="mt-5 text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
-                Updates about lab events, conferences, celebrations, and group activities will appear here.
-              </p>
+        <div>
+          <h2 className="text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">
+            ACTIVITIES
+          </h2>
+
+          <div className="mt-10 space-y-8">
+            <div className="border-b border-slate-200 pb-8">
+              <div className="text-2xl font-semibold tracking-tight text-slate-900"></div>
+              <div className="mt-2 text-sm uppercase tracking-[0.18em] text-slate-500"></div>
+              <p className="mt-4 max-w-4xl leading-8 text-slate-700"></p>
             </div>
-          </article>
+          </div>
         </div>
       </div>
     </section>
