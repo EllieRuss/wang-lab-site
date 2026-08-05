@@ -259,15 +259,21 @@ function Layout({
 function LandingPage() {
   return (
     <section className="w-full px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
-      <div className="mx-auto flex min-h-[48vh] max-w-6xl items-center justify-center">
+      <div className="mx-auto grid max-w-6xl items-center gap-5 md:grid-cols-[44%_56%] md:gap-0">
         <img
-          src="/images/landing_page.svg"
-          alt="Welcome to the Wang Lab with bacteria illustration"
-          className="h-auto max-h-[42vh] w-full max-w-4xl object-contain sm:max-h-[46vh]"
+          src="/images/landing-bacteria.svg"
+          alt="Cartoon showing bacterial interactions"
+          className="mx-auto h-auto max-h-[34vh] w-full object-contain md:max-h-[44vh]"
+        />
+
+        <img
+          src="/images/landing-welcome.svg"
+          alt="Welcome to the Wang Lab"
+          className="mx-auto h-auto max-h-[28vh] w-full object-contain md:max-h-[44vh]"
         />
       </div>
 
-      <p className="mx-auto mt-6 max-w-5xl text-center text-base leading-7 text-slate-800 sm:mt-8 sm:text-lg sm:leading-8">
+      <p className="mx-auto mt-8 max-w-5xl text-center text-base leading-7 text-slate-800 sm:mt-10 sm:text-lg sm:leading-8">
         The Wang Lab investigates the molecular mechanisms underlying bacterial host interactions,
         with a particular focus on Patescibacteria, surface structures, adhesion, and interspecies
         relationships in host-associated environments.
