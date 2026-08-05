@@ -269,25 +269,21 @@ function Layout({
 function LandingPage() {
   return (
     <section className="w-full px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
-      <div className="mx-auto grid max-w-5xl items-center gap-8 md:grid-cols-[42%_58%] md:gap-6">
-        <div className="mx-auto w-full max-w-[260px] sm:max-w-[300px] md:max-w-[340px]">
-          <img
-            src="/images/landing-bacteria.svg"
-            alt="Cartoon showing bacterial interactions"
-            className="block h-auto w-full"
-          />
-        </div>
+      <div className="mx-auto grid max-w-6xl items-center gap-5 md:grid-cols-[44%_56%] md:gap-0">
+        <img
+          src="/images/landing-bacteria.svg"
+          alt="Cartoon showing bacterial interactions"
+          className="mx-auto h-auto max-h-[34vh] w-full object-contain md:max-h-[44vh]"
+        />
 
-        <div className="mx-auto w-full max-w-[330px] sm:max-w-[390px] md:max-w-[470px]">
-          <img
-            src="/images/landing-welcome.svg"
-            alt="Welcome to the Wang Lab"
-            className="block h-auto w-full"
-          />
-        </div>
+        <img
+          src="/images/landing-welcome.svg"
+          alt="Welcome to the Wang Lab"
+          className="mx-auto h-auto max-h-[28vh] w-full object-contain md:max-h-[44vh]"
+        />
       </div>
 
-      <p className="mx-auto mt-14 max-w-5xl text-center text-base leading-7 text-slate-800 sm:mt-16 sm:text-lg sm:leading-8">
+      <p className="mx-auto mt-8 max-w-5xl text-center text-base leading-7 text-slate-800 sm:mt-10 sm:text-lg sm:leading-8">
         The Wang Lab investigates the molecular mechanisms underlying bacterial host interactions,
         with a particular focus on Patescibacteria, surface structures, adhesion, and interspecies
         relationships in host-associated environments.
@@ -626,11 +622,6 @@ function NewsPage() {
         <article className="grid gap-6 md:grid-cols-[280px_minmax(0,1fr)] md:items-start md:gap-10">
           <div className="grid grid-cols-2 gap-3 md:grid-cols-1">
             <img
-              src="/images/news-lab-start-2027-left.png"
-              alt="Wang Lab preparations for the January 2027 launch"
-              className="aspect-[4/3] w-full rounded-lg object-cover"
-            />
-            <img
               src="/images/news-lab-start-2027.png"
               alt="Wang Lab starting in January 2027"
               className="aspect-[4/3] w-full rounded-lg object-cover"
@@ -643,13 +634,11 @@ function NewsPage() {
               Wang Lab starts in January 2027!
             </h2>
             <p className="mt-5 text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
-              And the adventure begins.
             </p>
             <button
               type="button"
               className="mt-5 text-base font-medium text-slate-900 hover:text-slate-600 sm:text-lg"
             >
-              Continue Reading
             </button>
           </div>
         </article>
