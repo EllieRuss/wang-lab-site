@@ -28,7 +28,7 @@ const people = [
     name: 'Yaxi Wang',
     role: 'Assistant professor of microbiology',
     image: '/images/yaxi-profile.jpg',
-    bio: 'Yaxi, pronounced “Yashi” (yes, it sounds a bit like that green dinosaur in Super Mario), grew up in an ancient city in northern China. He received his Ph.D. in Biochemistry from Texas A&M, where he had fun studying lipid transfer proteins and lipid kinases in Dr. Vytas Bankaitis’s lab. For his postdoctoral training with Dr. Joseph Mougous, first at the University of Washington and later at Yale, Yaxi worked on a variety of topics spanning nutrient utilization in intracellular bacterial pathogens, bacterial protein-protein interactions, and interbacterial interactions. After experiencing life in the South, Pacific Northwest, and the East Coast, Yaxi is excited to move to Ohio, where the climate and latitude are very similar to those of his hometown. Outside of the lab, Yaxi enjoys watching professional basketball (Go Spurs!), exploring everything related to biology, and spending time with his family.',
+    bio: 'Yaxi, pronounced “Yashi” (yes, it sounds a bit like that green dinosaur in Super Mario), grew up in an ancient city in northern China. He received his Ph.D. in Biochemistry from Texas A&M with Dr. Vytas Bankaitis and did postdoctoral training with Dr. Joseph Mougous, first at the University of Washington and later at Yale. After experiencing life in the South, Pacific Northwest, and Northeast, Yaxi is glad to be landing in Ohio, where the climate and latitude are very similar to those of his hometown. Besides working in the lab, he enjoys watching professional basketball (Go Spurs Go), birding, and spending time with his wife and two boys.',
   },
   {
     name: 'Future Lab Member',
@@ -169,7 +169,7 @@ function Layout({
             <img
               src="/images/lab-logo.jpg"
               alt="Wang Lab logo"
-              className="h-14 w-auto object-contain sm:h-16 lg:h-20"
+              className="h-10 w-auto object-contain sm:h-12 lg:h-15"
             />
             <div className="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">
               WANG LAB
@@ -241,7 +241,7 @@ function Layout({
               <img
                 src="/images/osu-arts-sciences-logo.svg"
                 alt="The Ohio State University College of Arts and Sciences logo"
-                className="h-16 w-auto object-contain sm:h-20"
+                className="h-12 w-auto object-contain sm:h-16"
               />
             </div>
 
@@ -270,7 +270,7 @@ function LandingPage() {
   return (
     <section className="w-full px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
       <div className="mx-auto grid max-w-5xl items-center gap-8 md:grid-cols-[42%_58%] md:gap-6">
-        <div className="mx-auto w-full max-w-[260px] sm:max-w-[300px] md:max-w-[340px]">
+        <div className="mx-auto w-full max-w-[300px] sm:max-w-[335px] md:max-w-[380px]">
           <img
             src="/images/landing-bacteria.png"
             alt="Cartoon showing bacterial interactions"
@@ -278,7 +278,7 @@ function LandingPage() {
           />
         </div>
 
-        <div className="mx-auto w-full max-w-[330px] sm:max-w-[390px] md:max-w-[470px]">
+        <div className="mx-auto w-full max-w-[300px] sm:max-w-[335px] md:max-w-[380px]">
           <img
             src="/images/landing-welcome.svg"
             alt="Welcome to the Wang Lab"
@@ -287,10 +287,8 @@ function LandingPage() {
         </div>
       </div>
 
-      <p className="mx-auto mt-14 max-w-5xl text-center text-base leading-7 text-slate-800 sm:mt-16 sm:text-lg sm:leading-8">
-        The Wang Lab investigates the molecular mechanisms underlying bacterial host interactions,
-        with a particular focus on Patescibacteria, surface structures, adhesion, and interspecies
-        relationships in host-associated environments.
+      <p className="mx-auto mt-14 max-w-6xl text-center text-base leading-7 text-slate-800 sm:mt-20 sm:text-2xl sm:leading-10">
+        Our group is fascinated by the molecular mechanisms underlying intermicrobial interactions, particularly how ultrasmall Patescibacteria infect their bacterial hosts and how those hosts respond.
       </p>
     </section>
   );
@@ -314,15 +312,13 @@ function ResearchPage() {
          
         </h2>
         <p className="mx-auto mt-4 max-w-5xl text-base leading-7 text-slate-900 sm:mt-6 sm:text-lg sm:leading-8">
-          The Wang Lab investigates the molecular mechanisms underlying bacterial host interactions,
-          with a particular focus on Patescibacteria, surface structures, adhesion, and interspecies
-          relationships in host-associated environments.
+          Our group is fascinated by the molecular mechanisms underlying intermicrobial interactions, particularly how ultrasmall Patescibacteria infect their bacterial hosts and how those hosts respond.
         </p>
       </div>
 
       <div className="mx-auto mt-12 max-w-6xl sm:mt-16 lg:mt-20">
         <h1 className="mb-6 text-2xl font-semibold tracking-tight text-slate-900 sm:mb-8 md:text-4xl">
-          Patescibacteria: microbial dark matter
+          What is Patescibacteria?
         </h1>
 
         <div className="text-base leading-7 text-slate-900 sm:text-lg sm:leading-8">
@@ -333,54 +329,20 @@ function ResearchPage() {
           />
 
           <p>
-            The major focus of our group is on a group of bacteria called Patescibacteria (also
-            known as Candidate Phyla Radiation, CPR). These bacteria unproportionally contribute to
-            the “microbial dark matter” – the large group of microorganisms on our planet that are
-            difficult to cultivate and the biology of which remain largely unknown. Patescibacteria
-            comprise a significant proportion of bacterial diversity (as high as 25% based on some
-            estimates) and are widespread in environment and human microbiomes. They share unique
-            features that distinguish them from most other bacteria: ultrasmall (~0.2 µm in width),
-            streamlined genomes (less than 1 Mbp), limited metabolic capability (generally lacking
-            biosynthetic capacity for nucleic acids, amino acids, and fatty acids), and living as
-            obligate epibionts on host bacteria. Given their unique biology and the phylogenetic
-            distance from well-studied model bacteria, Patescibacteria represent a reservoir of
-            unexplored biological mechanisms and biosynthetic pathways with bioengineering and
-            pharmaceutical potentials. In addition, these bacteria are prevalent in the human oral
-            microbiota and are closely associated with human oral health and disease. Thus, the study
-            of Patescibacteria will also provide insights into their ecological role in human
-            microbiome and their health relevance.
+            Our lab studies Patescibacteria (also known as the Candidate Phyla Radiation, CPR), a large group of bacteria that is widespread in nature and prevalent in human oral microbiomes, where its members have been linked to both oral health and disease. These ultrasmall bacteria have streamlined genomes and limited metabolic capability (generally lacking biosynthetic pathways for nucleotides, amino acids, and fatty acids), and live as obligate epibionts on host bacteria. Their unique biology and phylogenetic distance from well-studied model bacteria make Patescibacteria a reservoir of unexplored biological mechanisms with bioengineering and pharmaceutical potential.
           </p>
 
           <div className="clear-both" />
         </div>
       </div>
 
-      <div className="mt-14 max-w-6xl space-y-3 text-base leading-7 text-slate-900 sm:mt-20 sm:text-lg sm:leading-8">
+      <div className="mt-8 max-w-6xl text-base leading-7 text-slate-900 sm:mt-10 sm:text-lg sm:leading-8">
         <p>
-          We use a combination of genetic, biochemical, structural, and bioinformatic approaches to
-          study these enigmatic bacteria and their interactions with hosts. Some of our current
-          focuses include:
+          We combine genetic, biochemical, structural, and bioinformatic approaches to study these enigmatic bacteria and their interactions with hosts. Current projects include: 1) characterizing the molecular mechanisms governing Patescibacteria–host attachment and host-binding specificity; 2) investigating how host bacteria defend themselves against Patescibacteria; 3) discovering novel enzymes, pathways, and molecular machines in Patescibacteria using modern high-throughput techniques.
         </p>
-        <ol className="list-decimal space-y-3 pl-6">
-          <li>What is the range of host microorganisms that Patescibacteria can infect?</li>
-          <li>
-            What are the molecular mechanisms governing Patescibacteria-host attachment and host
-            specificity?
-          </li>
-          <li>
-            How do host bacteria respond to Patescibacteria infection and defend against
-            Patescibacteria?
-          </li>
-          <li>
-            How do Patescibacteria and their interactions with host bacteria influence the human
-            oral microbiome and human health?
-          </li>
-        </ol>
-        <p>
-          Beyond Patescibacteria, we are broadly interested in studying interactions between
-          microbes, including bacteria, phages, and archaea, especially those that reside in human
-          microbiomes. Through these investigations, we aim to contribute to our understanding of
-          how intermicrobial interactions shape the microbiome and ultimately impact human health.
+
+        <p className="mt-10 sm:mt-12">
+          Beyond Patescibacteria, we are broadly interested in exploring mechanisms underlying intermicrobial interactions, especially those that are medically relevant or associated with human microbiomes. Our goal is to understand how these interactions shape microbiomes and impact human health, and to harness the diverse antagonistic and cooperative strategies microbes have evolved over billions of years to address pressing medical and environmental challenges.
         </p>
       </div>
     </section>
@@ -600,13 +562,13 @@ function PublicationsPage() {
         ))}
       </div>
 
-      <div className="mt-20">
+      <div className="mt-15">
         <h2 className="text-2xl font-semibold tracking-tight text-slate-900 md:text-4xl">
           Other Publications
         </h2>
       </div>
 
-      <div className="mt-10 space-y-10">
+      <div className="mt-6 space-y-3">
         {otherPublications.map((pub) => (
           <PublicationCard key={pub.title} pub={pub} />
         ))}
@@ -617,8 +579,8 @@ function PublicationsPage() {
 
 function NewsPage() {
   return (
-    <section className="mx-auto max-w-5xl px-5 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
-      <h1 className="text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">
+    <section className="mx-auto max-w-3xl px-5 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
+      <h1 className="text-2xl font-semibold tracking-tight text-slate-900 md:text-3xl">
         LAB NEWS
       </h1>
 
@@ -634,24 +596,22 @@ function NewsPage() {
 
           <div>
             <div className="text-base text-slate-500">January 2027</div>
-            <h2 className="mt-3 text-2xl font-medium tracking-tight text-slate-900 sm:text-3xl">
+            <h2 className="mt-3 text-2xl font-medium tracking-tight text-slate-900 sm:text-2xl">
               Wang Lab starts in January 2027!
             </h2>
             <p className="mt-5 text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
-              And the adventure begins.
             </p>
             <button
               type="button"
               className="mt-5 text-base font-medium text-slate-900 hover:text-slate-600 sm:text-lg"
             >
-              Continue Reading
             </button>
           </div>
         </article>
       </div>
 
       <div className="mt-20">
-        <h2 className="text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">
+        <h2 className="text-3xl font-semibold tracking-tight text-slate-900 md:text-3xl">
           ACTIVITIES
         </h2>
 
@@ -663,7 +623,7 @@ function NewsPage() {
 
             <div>
               <div className="text-base text-slate-500">Coming soon</div>
-              <h3 className="mt-3 text-2xl font-medium tracking-tight text-slate-900 sm:text-3xl">
+              <h3 className="mt-3 text-2xl font-medium tracking-tight text-slate-900 sm:text-2xl">
                 Lab activities
               </h3>
               <p className="mt-5 text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
@@ -678,7 +638,7 @@ function NewsPage() {
 }
 function JoinPage() {
   return (
-    <section className="mx-auto max-w-7xl px-5 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
+    <section className="mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
       <div className="grid gap-8 lg:grid-cols-[minmax(0,640px)_minmax(0,1fr)] lg:items-start lg:gap-10">
         <div>
           <img
@@ -690,22 +650,22 @@ function JoinPage() {
 
         <div>
           <h1 className="text-3xl font-bold tracking-tight text-slate-900 md:text-3xl">
-            Contact
+            CONTACT
           </h1>
 
           <div className="mt-8 space-y-4 text-slate-800">
             <div>
-              <h2 className="text-base font-semibold text-slate-900">Students</h2>
-              <p className="mt-2 text-sm leading-6">
+              <h2 className="text-lg font-semibold text-slate-900">Students</h2>
+              <p className="mt-2 text-lg leading-6">
                 Graduate students and undergraduate students are welcome to inquire.
               </p>
             </div>
 
             <div>
-              <h2 className="text-base font-semibold text-slate-900">
+              <h2 className="text-lg font-semibold text-slate-900">
                 Postdoctoral fellow
               </h2>
-              <p className="mt-2 text-sm leading-6">
+              <p className="mt-2 text-lg leading-6">
                 Candidates with experience in microbiology, biochemistry, molecular biology and
                 genetics are encouraged to send application and CV to the email address below.
               </p>
@@ -713,7 +673,7 @@ function JoinPage() {
 
             <div className="border-w border-slate-300 pt-6">
               <h2 className="text-3xl space-y-12 font-bold text-slate-900">Get in touch</h2>
-              <div className="mt-3 space-y-6 text-sm leading-6">
+              <div className="mt-3 space-y-6 text-lg leading-6">
                 <p>
                   <span className="font-semibold">Email:</span> yaxi621@gmail.com
                 </p>
@@ -725,7 +685,7 @@ function JoinPage() {
                     rel="noreferrer"
                     className="underline underline-offset-4 hover:text-slate-950"
                   >
-                    476 Biological Sciences Building, 484 W. 12th Ave
+                    476 Biological Sciences Building, 484 W. 12th Ave, Columbus, Ohio
                   </a>
                 </p>
               </div>
