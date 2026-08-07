@@ -678,7 +678,7 @@ function JoinPage() {
               </h2>
               <p className="mt-2 text-lg leading-6">
                 Candidates with experience in microbiology, biochemistry, molecular biology and
-                genetics are encouraged to send application and CV to the email address below.
+                genetics are encouraged to send application to the email address below.
               </p>
             </div>
 
