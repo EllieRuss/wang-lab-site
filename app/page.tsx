@@ -232,9 +232,17 @@ function Layout({
         )}
       </header>
 
-      <main>{children}</main>
+      <main
+        className={
+          page === 'home'
+            ? 'min-h-[calc(100svh-4rem)] sm:min-h-[calc(100svh-5rem)] lg:min-h-[calc(100svh-5.75rem)]'
+            : ''
+        }
+      >
+        {children}
+      </main>
 
-      <footer className="mt-16 bg-slate-100">
+      <footer className={page === 'home' ? 'bg-slate-100' : 'mt-16 bg-slate-100'}>
         <div className="mx-auto max-w-6xl px-6 py-10 lg:px-8">
           <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex justify-center sm:justify-start">
@@ -307,41 +315,30 @@ function HomePage() {
 function ResearchPage() {
   return (
     <section className="mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-10">
-      <div className="mb-14">
-        <h2 className="text-center text-2xl font-semibold tracking-tight text-slate-900 md:text-5xl">
+      <div className="mb-10">
+        <p className="mx-auto max-w-5xl text-base leading-7 text-slate-900 sm:text-lg sm:leading-8">
          
-        </h2>
-        <p className="mx-auto mt-4 max-w-5xl text-base leading-7 text-slate-900 sm:mt-6 sm:text-lg sm:leading-8">
-          Our group is fascinated by the molecular mechanisms underlying intermicrobial interactions, particularly how ultrasmall Patescibacteria infect their bacterial hosts and how those hosts respond.
         </p>
       </div>
 
-      <div className="mx-auto mt-12 max-w-6xl sm:mt-16 lg:mt-20">
-        <h1 className="mb-6 text-2xl font-semibold tracking-tight text-slate-900 sm:mb-8 md:text-4xl">
-          What is Patescibacteria?
-        </h1>
+      <div className="mx-auto max-w-6xl text-base leading-7 text-slate-900 sm:text-lg sm:leading-8">
+        <img
+          src="/images/research-pic.png"
+          alt="Scanning electron micrograph showing Saccharibacteria attached to host bacteria"
+          className="mb-4 w-full rounded-xl object-contain sm:float-right sm:mb-4 sm:ml-8 sm:max-w-[320px]"
+        />
 
-        <div className="text-base leading-7 text-slate-900 sm:text-lg sm:leading-8">
-          <img
-            src="/images/research-pic.png"
-            alt="Scanning electron micrograph showing Saccharibacteria attached to host bacteria"
-            className="mb-5 w-full rounded-xl object-contain sm:float-left sm:mb-4 sm:mr-8 sm:max-w-[320px]"
-          />
-
-          <p>
-            Our lab studies Patescibacteria (also known as the Candidate Phyla Radiation, CPR), a large group of bacteria that is widespread in nature and prevalent in human oral microbiomes, where its members have been linked to both oral health and disease. These ultrasmall bacteria have streamlined genomes and limited metabolic capability (generally lacking biosynthetic pathways for nucleotides, amino acids, and fatty acids), and live as obligate epibionts on host bacteria. Their unique biology and phylogenetic distance from well-studied model bacteria make Patescibacteria a reservoir of unexplored biological mechanisms with bioengineering and pharmaceutical potential.
-          </p>
-
-          <div className="clear-both" />
-        </div>
-      </div>
-
-      <div className="mt-8 max-w-6xl text-base leading-7 text-slate-900 sm:mt-10 sm:text-lg sm:leading-8">
         <p>
+          Our lab studies Patescibacteria (also known as the Candidate Phyla Radiation, CPR), a large group of bacteria that is widespread in nature and prevalent in human oral microbiomes, where its members have been linked to both oral health and disease. These ultrasmall bacteria have streamlined genomes and limited metabolic capability (generally lacking biosynthetic pathways for nucleotides, amino acids, and fatty acids), and live as obligate epibionts on host bacteria. Their unique biology and phylogenetic distance from well-studied model bacteria make Patescibacteria a reservoir of unexplored biological mechanisms with bioengineering and pharmaceutical potential.
+        </p>
+
+        <p className="mt-4">
           We combine genetic, biochemical, structural, and bioinformatic approaches to study these enigmatic bacteria and their interactions with hosts. Current projects include: 1) characterizing the molecular mechanisms governing Patescibacteria–host attachment and host-binding specificity; 2) investigating how host bacteria defend themselves against Patescibacteria; 3) discovering novel enzymes, pathways, and molecular machines in Patescibacteria using modern high-throughput techniques.
         </p>
 
-        <p className="mt-10 sm:mt-12">
+        <div className="clear-both" />
+
+        <p className="mt-4">
           Beyond Patescibacteria, we are broadly interested in exploring mechanisms underlying intermicrobial interactions, especially those that are medically relevant or associated with human microbiomes. Our goal is to understand how these interactions shape microbiomes and impact human health, and to harness the diverse antagonistic and cooperative strategies microbes have evolved over billions of years to address pressing medical and environmental challenges.
         </p>
       </div>
@@ -352,35 +349,49 @@ function ResearchPage() {
 function PeoplePage({ setPage }: { setPage: (page: PageKey) => void }) {
   return (
     <section className="mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
-      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="space-y-14">
         {people.map((person, index) => (
-          <button
+          <div
             key={person.name + person.role + index}
-            type="button"
-            onClick={() => setPage(`person-${index}` as PageKey)}
-            className="text-left"
+            className="grid gap-8 md:grid-cols-[320px_minmax(0,1fr)] md:items-start md:gap-10"
           >
-            <div className="overflow-hidden rounded-2xl bg-white">
-              {person.image ? (
-                <img
-                  src={person.image}
-                  alt={person.name}
-                  className="h-[320px] w-full object-cover sm:h-[380px] lg:h-[420px]"
-                />
-              ) : (
-                <div className="flex h-[420px] items-center justify-center rounded-2xl bg-slate-100 text-slate-500">
-                  Photo
-                </div>
-              )}
-            </div>
+            <button
+              type="button"
+              onClick={() => setPage(`person-${index}` as PageKey)}
+              className="text-left"
+            >
+              <div className="overflow-hidden rounded-2xl bg-white">
+                {person.image ? (
+                  <img
+                    src={person.image}
+                    alt={person.name}
+                    className="h-auto w-full object-cover"
+                  />
+                ) : (
+                  <div className="flex aspect-[4/5] w-full items-center justify-center rounded-2xl bg-slate-100 text-slate-500">
+                    Photo
+                  </div>
+                )}
+              </div>
+            </button>
 
-            <div className="mt-4">
-              <h2 className="text-2xl font-semibold tracking-tight text-slate-900">
-                {person.name}
-              </h2>
-              <div className="mt-1 text-slate-600">{person.role}</div>
+            <div className="md:pt-1">
+              <button
+                type="button"
+                onClick={() => setPage(`person-${index}` as PageKey)}
+                className="text-left"
+              >
+                <h2 className="text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">
+                  {person.name}
+                </h2>
+                <div className="mt-2 text-lg text-slate-600">{person.role}</div>
+              </button>
+
+              <p className="mt-6 text-base leading-7 text-slate-700 sm:text-lg sm:leading-8">
+                {person.bio}
+              </p>
             </div>
-          </button>
+          </div>
         ))}
       </div>
     </section>
