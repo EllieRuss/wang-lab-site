@@ -1,0 +1,8 @@
+/* Add these classes to app/globals.css */
+.font-pixel {
+  font-family: var(--font-pixel), monospace;
+}
+
+.font-serif {
+  font-family: var(--font-book), Georgia, serif;
+}

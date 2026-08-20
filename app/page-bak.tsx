@@ -21,10 +21,7 @@ const navItems: { key: Exclude<PageKey, 'person-0' | 'person-1' | 'person-2' | '
   { key: 'publications', label: 'PUBLICATIONS' },
   { key: 'news', label: 'NEWS' },
   { key: 'join', label: 'CONTACT' },
- ];
-
-const frauncesFont = { fontFamily: 'var(--font-fraunces)' };
-const manropeFont = { fontFamily: 'var(--font-manrope)' };
+];
 
 const people = [
   {
@@ -161,16 +158,8 @@ function Layout({
   };
 
   return (
-    <div
-      className={`min-h-screen overflow-x-hidden text-slate-900 ${
-        page === 'home' ? 'bg-[#F4EFE6]' : 'bg-[#FBF9F5]'
-      }`}
-    >
-      <header style={frauncesFont}
-        className={`sticky top-0 z-30 backdrop-blur ${
-          page === 'home' ? 'bg-[#F4EFE6]/95' : 'bg-[#FBF9F5]/95'
-        }`}
-      >
+    <div className="min-h-screen overflow-x-hidden bg-white text-slate-900">
+      <header className="sticky top-0 z-30 bg-white/95 backdrop-blur">
         <div className="flex items-center justify-between px-4 py-3 sm:px-6 sm:py-4 lg:px-8">
           <button
             type="button"
@@ -182,7 +171,7 @@ function Layout({
               alt="Wang Lab logo"
               className="h-10 w-auto object-contain sm:h-12 lg:h-15"
             />
-            <div style={frauncesFont} className="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">
+            <div className="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">
               WANG LAB
             </div>
           </button>
@@ -219,11 +208,7 @@ function Layout({
         </div>
 
         {mobileMenuOpen && (
-          <nav
-            className={`px-4 py-3 md:hidden ${
-              page === 'home' ? 'bg-[#F4EFE6]' : 'bg-[#FBF9F5]'
-            }`}
-          >
+          <nav className="bg-white px-4 py-3 md:hidden">
             <div className="flex flex-col">
               {navItems.map((item) => {
                 const active = page === item.key;
@@ -250,14 +235,14 @@ function Layout({
       <main
         className={
           page === 'home'
-            ? 'min-h-[calc(100svh-4rem)] bg-[#F4EFE6] sm:min-h-[calc(100svh-5rem)] lg:min-h-[calc(100svh-5.75rem)]'
-            : 'bg-[#FBF9F5]'
+            ? 'min-h-[calc(100svh-4rem)] sm:min-h-[calc(100svh-5rem)] lg:min-h-[calc(100svh-5.75rem)]'
+            : ''
         }
       >
         {children}
       </main>
 
-      <footer className="bg-[#3F3F3F] text-white">
+      <footer className={page === 'home' ? 'bg-slate-100' : 'mt-16 bg-slate-100'}>
         <div className="mx-auto max-w-6xl px-6 py-10 lg:px-8">
           <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex justify-center sm:justify-start">
@@ -269,8 +254,8 @@ function Layout({
             </div>
 
             <div className="text-center sm:text-right">
-              <div style={frauncesFont} className="text-lg font-semibold text-white">Wang Lab @ OSU</div>
-              <p className="mt-3 break-words leading-7 text-slate-200">
+              <div className="text-lg font-semibold text-slate-900">Wang Lab @ OSU</div>
+              <p className="mt-3 break-words leading-7 text-slate-600">
                 Department of Microbiology
                 <br />
                 The Ohio State University
@@ -280,7 +265,7 @@ function Layout({
             </div>
           </div>
 
-          <div className="mt-8 pt-2 text-center text-sm text-slate-300">
+          <div className="mt-8 pt-2 text-center text-sm text-slate-500">
             © 2026 Wang Lab. All rights reserved.
           </div>
         </div>
@@ -291,7 +276,7 @@ function Layout({
 
 function LandingPage() {
   return (
-    <section style={frauncesFont} className="w-full px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
+    <section className="w-full bg-[#F0EDE5] px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
       <div className="mx-auto grid max-w-5xl items-center gap-8 md:grid-cols-[42%_58%] md:gap-6">
         <div className="mx-auto w-full max-w-[300px] sm:max-w-[335px] md:max-w-[380px]">
           <img
@@ -329,7 +314,7 @@ function HomePage() {
 
 function ResearchPage() {
   return (
-    <section style={manropeFont} className="mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-10">
+    <section className="mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-10">
       <div className="mb-10">
         <p className="mx-auto max-w-5xl text-base leading-7 text-slate-900 sm:text-lg sm:leading-8">
          
@@ -363,7 +348,7 @@ function ResearchPage() {
 
 function PeoplePage({ setPage }: { setPage: (page: PageKey) => void }) {
   return (
-    <section style={manropeFont} className="mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
+    <section className="mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
       <div className="space-y-14">
         {people.map((person, index) => (
           <div
@@ -396,7 +381,7 @@ function PeoplePage({ setPage }: { setPage: (page: PageKey) => void }) {
                 onClick={() => setPage(`person-${index}` as PageKey)}
                 className="text-left"
               >
-                <h2 style={frauncesFont} className="text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">
+                <h2 className="text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">
                   {person.name}
                 </h2>
                 <div className="mt-2 text-lg text-slate-600">{person.role}</div>
@@ -421,7 +406,7 @@ function PersonDetailPage({
   setPage: (page: PageKey) => void;
 }) {
   return (
-    <section style={manropeFont} className="mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
+    <section className="mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
       <button
         type="button"
         onClick={() => setPage('people')}
@@ -446,7 +431,7 @@ function PersonDetailPage({
         </div>
 
         <div>
-          <h1 style={frauncesFont} className="text-3xl font-semibold tracking-tight text-slate-900 md:text-5xl">
+          <h1 className="text-3xl font-semibold tracking-tight text-slate-900 md:text-5xl">
             {person.name}
           </h1>
           <div className="mt-2 text-lg text-slate-600">{person.role}</div>
@@ -494,7 +479,7 @@ function PublicationCard({
           href={pub.link}
           target="_blank"
           rel="noreferrer"
-          style={manropeFont} className="text-xl font-semibold leading-tight tracking-tight text-slate-900 underline underline-offset-4 hover:text-slate-700 sm:text-2xl"
+          className="text-xl font-semibold leading-tight tracking-tight text-slate-900 underline underline-offset-4 hover:text-slate-700 sm:text-2xl"
         >
           {pub.title}
         </a>
@@ -535,7 +520,7 @@ function PublicationCard({
           href={pub.link}
           target="_blank"
           rel="noreferrer"
-          style={manropeFont} className="text-xl font-semibold leading-tight tracking-tight text-slate-900 underline underline-offset-4 hover:text-slate-700 sm:text-2xl"
+          className="text-xl font-semibold leading-tight tracking-tight text-slate-900 underline underline-offset-4 hover:text-slate-700 sm:text-2xl"
         >
           {pub.title}
         </a>
@@ -558,7 +543,7 @@ function PublicationCard({
 
 function PublicationsPage() {
   return (
-    <section style={manropeFont} className="mx-auto max-w-6xl px-5 py-8 sm:px-6 sm:py-10 lg:px-8">
+    <section className="mx-auto max-w-6xl px-5 py-8 sm:px-6 sm:py-10 lg:px-8">
       <div className="relative overflow-hidden rounded-2xl">
         <img
           src="/images/publications-banner.png"
@@ -567,14 +552,14 @@ function PublicationsPage() {
         />
         <div className="absolute inset-0 bg-black/10" />
         <div className="absolute inset-x-0 bottom-0 p-6 lg:p-8">
-          <h1 style={frauncesFont} className="text-3xl font-semibold tracking-tight text-white md:text-5xl">
+          <h1 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">
             Publications
           </h1>
         </div>
       </div>
 
       <div className="mt-10">
-        <h2 style={frauncesFont} className="text-2xl font-semibold tracking-tight text-slate-900 md:text-4xl">
+        <h2 className="text-2xl font-semibold tracking-tight text-slate-900 md:text-4xl">
           Selected Publications
         </h2>
         <p className="mt-4 max-w-4xl text-lg leading-8 text-slate-700">
@@ -589,7 +574,7 @@ function PublicationsPage() {
       </div>
 
       <div className="mt-15">
-        <h2 style={frauncesFont} className="text-2xl font-semibold tracking-tight text-slate-900 md:text-4xl">
+        <h2 className="text-2xl font-semibold tracking-tight text-slate-900 md:text-4xl">
           Other Publications
         </h2>
       </div>
@@ -605,8 +590,8 @@ function PublicationsPage() {
 
 function NewsPage() {
   return (
-    <section style={manropeFont} className="mx-auto max-w-3xl px-5 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
-      <h1 style={frauncesFont} className="text-2xl font-semibold tracking-tight text-slate-900 md:text-3xl">
+    <section className="mx-auto max-w-3xl px-5 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
+      <h1 className="text-2xl font-semibold tracking-tight text-slate-900 md:text-3xl">
         LAB NEWS
       </h1>
 
@@ -622,7 +607,7 @@ function NewsPage() {
 
           <div>
             <div className="text-base text-slate-500">January 2027</div>
-            <h2 style={frauncesFont} className="mt-3 text-2xl font-medium tracking-tight text-slate-900 sm:text-2xl">
+            <h2 className="mt-3 text-2xl font-medium tracking-tight text-slate-900 sm:text-2xl">
               Wang Lab starts in January 2027!
             </h2>
             <p className="mt-5 text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
@@ -637,7 +622,7 @@ function NewsPage() {
       </div>
 
       <div className="mt-20">
-        <h2 style={frauncesFont} className="text-3xl font-semibold tracking-tight text-slate-900 md:text-3xl">
+        <h2 className="text-3xl font-semibold tracking-tight text-slate-900 md:text-3xl">
           ACTIVITIES
         </h2>
 
@@ -649,7 +634,7 @@ function NewsPage() {
 
             <div>
               <div className="text-base text-slate-500">Coming soon</div>
-              <h3 style={frauncesFont} className="mt-3 text-2xl font-medium tracking-tight text-slate-900 sm:text-2xl">
+              <h3 className="mt-3 text-2xl font-medium tracking-tight text-slate-900 sm:text-2xl">
                 Lab activities
               </h3>
               <p className="mt-5 text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
@@ -664,7 +649,7 @@ function NewsPage() {
 }
 function JoinPage() {
   return (
-    <section style={manropeFont} className="mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
+    <section className="mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
       <div className="grid gap-8 lg:grid-cols-[minmax(0,640px)_minmax(0,1fr)] lg:items-start lg:gap-10">
         <div>
           <img
@@ -675,20 +660,20 @@ function JoinPage() {
         </div>
 
         <div>
-          <h1 style={frauncesFont} className="text-3xl font-bold tracking-tight text-slate-900 md:text-3xl">
+          <h1 className="text-3xl font-bold tracking-tight text-slate-900 md:text-3xl">
             CONTACT
           </h1>
 
           <div className="mt-8 space-y-4 text-slate-800">
             <div>
-              <h2 style={frauncesFont} className="text-lg font-semibold text-slate-900">Students</h2>
+              <h2 className="text-lg font-semibold text-slate-900">Students</h2>
               <p className="mt-2 text-lg leading-6">
                 We welcome graduate students interested in rotations, as well as undergraduate students interested in joining the lab. Please email us for more information.
               </p>
             </div>
 
             <div>
-              <h2 style={frauncesFont} className="text-lg font-semibold text-slate-900">
+              <h2 className="text-lg font-semibold text-slate-900">
                 Postdoctoral fellow
               </h2>
               <p className="mt-2 text-lg leading-6">
@@ -698,7 +683,7 @@ function JoinPage() {
             </div>
 
             <div className="border-w border-slate-300 pt-6">
-              <h2 style={frauncesFont} className="text-3xl space-y-12 font-bold text-slate-900">Get in touch</h2>
+              <h2 className="text-3xl space-y-12 font-bold text-slate-900">Get in touch</h2>
               <div className="mt-3 space-y-6 text-lg leading-6">
                 <p>
                   <span className="font-semibold">Email:</span> wang.21271@osu.edu
