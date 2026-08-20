@@ -310,7 +310,7 @@ function LandingPage() {
         </div>
       </div>
 
-      <p className="mx-auto mt-14 max-w-6xl text-center text-base font-normal leading-7 text-slate-800 sm:mt-20 sm:text-2xl sm:leading-10">
+      <p className="mx-auto mt-14 max-w-6xl text-center text-base leading-7 text-slate-800 sm:mt-20 sm:text-2xl sm:leading-10">
         Our group is fascinated by the molecular mechanisms underlying intermicrobial interactions, particularly how ultrasmall Patescibacteria infect their bacterial hosts and how those hosts respond.
       </p>
     </section>
