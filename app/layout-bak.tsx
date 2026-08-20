@@ -17,22 +17,8 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.yaxiwanglab.org"),
-  title: "Yaxi Wang Lab | The Ohio State University",
-  description:
-    "The Yaxi Wang Lab in the Department of Microbiology at The Ohio State University studies Patescibacteria, bacterial host interactions, and intermicrobial interactions.",
-  authors: [{ name: "Yaxi Wang" }],
-  alternates: {
-    canonical: "/",
-  },
-  openGraph: {
-    title: "Yaxi Wang Lab | The Ohio State University",
-    description:
-      "The Yaxi Wang Lab in the Department of Microbiology at The Ohio State University studies Patescibacteria, bacterial host interactions, and intermicrobial interactions.",
-    url: "https://www.yaxiwanglab.org",
-    siteName: "Yaxi Wang Lab",
-    type: "website",
-  },
+  title: "Wang Lab",
+  description: "Wang Lab website",
 };
 
 export default function RootLayout({
