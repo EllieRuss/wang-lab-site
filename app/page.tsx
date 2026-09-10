@@ -57,7 +57,7 @@ const selectedPublications = [
   {
     title: 'Oral Actinobacteria sense and defend against parasitic epibionts',
     authors:
-      '[Wang Y], Colautti J, Gallagher LA, Lee J, Tan Y, Farrell S, Farrell C, Bor B, Whitney JC, Zhang D, Peterson SB, Mougous JD',
+      '[Wang Y], Colautti J, Gallagher LA, Lee J, Tan Y, Farrell S, Farrell C, Bor B, Whitney JC, Zhang D, Peterson SB, Mougous JD.',
     journal: 'bioRxiv',
     date: '2026',
     link: 'https://doi.org/10.64898/2026.09.08.750141',
