@@ -55,6 +55,16 @@ const people = [
 
 const selectedPublications = [
   {
+    title: 'Oral Actinobacteria sense and defend against parasitic epibionts',
+    authors:
+      '[Wang Y], Colautti J, Gallagher LA, Lee J, Tan Y, Farrell S, Farrell C, Bor B, Whitney JC, Zhang D, Peterson SB, Mougous JD',
+    journal: 'bioRxiv',
+    date: '2026',
+    link: 'https://doi.org/10.64898/2026.09.08.750141',
+    image: '/images/publication-selected-5.png',
+    alt: 'Illustration for Actinobacteria defend against epibionts',
+  },
+  {
     title: 'Protein interactions in human pathogens revealed through deep learning',
     authors:
       'Humphreys IR*, Zhang J*, Baek M*, [Wang Y]*, Krishnakumar A, Pei J, Anishchenko I, Tower CA, Jackson BA, Warrier T, Hung DT, Peterson SB, Mougous JD, Cong Q, Baker D.',
@@ -344,17 +354,17 @@ function ResearchPage() {
         />
 
         <p>
-          Our lab studies Patescibacteria (also known as the Candidate Phyla Radiation, CPR), a large group of bacteria that is widespread in nature and prevalent in human oral microbiomes, where its members have been linked to both oral health and disease. These ultrasmall bacteria have streamlined genomes and limited metabolic capability (generally lacking biosynthetic pathways for nucleotides, amino acids, and fatty acids), and live as obligate epibionts on host bacteria. Their unique biology and phylogenetic distance from well-studied model bacteria make Patescibacteria a reservoir of unexplored biological mechanisms with bioengineering and pharmaceutical potential.
+          Our lab studies Patescibacteria (also known as the Candidate Phyla Radiation, CPR), a large group of bacteria that is widespread in nature and prevalent in human oral microbiomes, where its members have been linked to both oral health and disease. These ultrasmall bacteria have streamlined genomes and limited metabolic capability (generally lacking biosynthetic pathways for nucleotides, amino acids, and fatty acids) and live as obligate epibionts on host bacteria. Their unique biology and phylogenetic distance from well-studied model bacteria make Patescibacteria a reservoir of unexplored biological mechanisms with bioengineering and pharmaceutical potential.
         </p>
 
         <p className="mt-4">
-          We combine genetic, biochemical, structural, and bioinformatic approaches to study these enigmatic bacteria and their interactions with hosts. Current projects include: 1) characterizing the molecular mechanisms governing Patescibacteria–host attachment and host-binding specificity; 2) investigating how host bacteria defend themselves against Patescibacteria; 3) discovering novel enzymes, pathways, and molecular machines in Patescibacteria using modern high-throughput techniques.
+          We combine genetic, biochemical, structural, and bioinformatic approaches to study these enigmatic bacteria and their interactions with hosts. Current projects include: 1) characterizing the molecular mechanisms governing Patescibacteria–host attachment and host-binding specificity; 2) investigating how host bacteria defend themselves against Patescibacteria; and 3) discovering novel enzymes, pathways, and molecular machines in Patescibacteria using modern high-throughput techniques.
         </p>
 
         <div className="clear-both" />
 
         <p className="mt-4">
-          Beyond Patescibacteria, we are broadly interested in exploring mechanisms underlying intermicrobial interactions, especially those that are medically relevant or associated with human microbiomes. Our goal is to understand how these interactions shape microbiomes and impact human health, and to harness the diverse antagonistic and cooperative strategies microbes have evolved over billions of years to address pressing medical and environmental challenges.
+          Beyond Patescibacteria, we are broadly interested in exploring mechanisms underlying intermicrobial interactions, especially those that are medically relevant or associated with human microbiomes. Our goal is to understand how these interactions shape microbiomes and impact human health, and to address pressing medical and environmental challenges by harnessing the diverse biological conflict systems that microbes have evolved over billions of years.
         </p>
       </div>
     </section>
